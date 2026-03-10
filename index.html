@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Reportes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        .left-panel {
+            flex: 2;
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .right-panel {
+            flex: 1;
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 13px;
+            transition: all 0.2s;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .card.selected {
+            background: #0078D7;
+            border-color: #0078D7;
+            color: white;
+        }
+
+        .card-multiple {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 13px;
+            transition: all 0.2s;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .card-multiple.selected {
+            background: #0078D7;
+            border-color: #0078D7;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #45a049;
+        }
+
+        .btn-danger {
+            background: #ff4444;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #cc0000;
+        }
+
+        .btn-warning {
+            background: #FF9800;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #f57c00;
+        }
+
+        .btn-info {
+            background: #2196F3;
+            color: white;
+        }
+
+        .btn-info:hover {
+            background: #1976D2;
+        }
+
+        /* ===== BOTONES RÁPIDOS ===== */
+        .quick-buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+            height: 600px;
+            overflow-y: auto;
+            padding: 10px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .quick-button-item {
+            display: flex;
+            gap: 4px;
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+        .quick-button {
+            flex: 1;
+            padding: 10px 5px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 300;
+            text-align: center;
+            color: #495057;
+            transition: all 0.2s ease;
+            white-space: normal;
+            word-wrap: break-word;
+            height: 28px;
+        }
+
+        .quick-button:hover {
+            background: #0078D7;
+            color: white;
+            border-color: #0078D7;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .edit-button {
+            width: 32px;
+            height: 20px;
+            background: #ffd700;
+            border: 1px solid #cca300;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            color: #856404;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .edit-button:hover {
+            background: #e6b800;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Scroll personalizado */
+        .quick-buttons-grid::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .quick-buttons-grid::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        .quick-buttons-grid::-webkit-scrollbar-thumb {
+            background: #0078D7;
+            border-radius: 5px;
+        }
+
+        .quick-buttons-grid::-webkit-scrollbar-thumb:hover {
+            background: #0056b3;
+        }
+
+        /* Controles de tamaño */
+        .controles-botones {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .controles-botones select {
+            padding: 6px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .correos-section {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f8f8;
+        }
+
+        .correos-section h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            margin: 10px 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        .mensaje {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .mensaje.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .mensaje.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .flex-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .mt-10 {
+            margin-top: 10px;
+        }
+
+        .mb-5 {
+            margin-bottom: 5px;
+        }
+
+        .text-small {
+            font-size: 12px;
+        }
+
+        .text-green {
+            color: green;
+        }
+
+        .semaforo-btn {
+            width: 40px;
+            height: 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .camdom-btn {
+            width: 40px;
+            height: 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .herramientas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .herramienta-item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .herramienta-item.selected {
+            background: #0078D7;
+            color: white;
+            border-color: #0078D7;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 400px;
+            border-radius: 8px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="text-green mb-5">Herramienta creada por ADNsmart</div>
+
+            <div class="flex-row">
+                <div style="flex: 1;">
+                    <div class="form-label">Pedido:</div>
+                    <input type="text" id="pedido" class="form-control" style="width: 200px;" onkeyup="detectarTipoPedido()" onchange="detectarTipoPedido()">
+                </div>
+                <div style="flex: 2;">
+                    <div class="form-label">Tipo:</div>
+                    <div class="card-container" id="tipoContainer"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">SKU:</div>
+                <textarea id="sku" class="form-control" rows="1"></textarea>
+            </div>
+
+            <div class="form-group">
+                <div class="flex-row">
+                    <div class="form-label">Solicitud:</div>
+                    <div class="flex-row">
+                        <input type="checkbox" id="segFolCheck"> <label for="segFolCheck">Seg Fol</label>
+                        <input type="checkbox" id="segFolVencCheck"> <label for="segFolVencCheck">Seg Fol Venc</label>
+                        <button id="camdomBtn" class="camdom-btn" style="background: #4CAF50; display: none;" onclick="toggleCamdom()">🟢</button>
+                    </div>
+                </div>
+                <div class="card-container" id="solicitudContainer"></div>
+                <div class="flex-row mt-10">
+                    <label>Otro:</label>
+                    <input type="text" id="solicitudOtro" class="form-control" style="flex: 1;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="flex-row">
+                    <div class="form-label">Estatus:</div>
+                    <div class="flex-row">
+                        <input type="checkbox" id="ccCheck"> <label for="ccCheck">C&C</label>
+                        <button id="semaforoBtn" class="semaforo-btn" style="background: #4CAF50; display: none;" onclick="toggleSemaforo()">🟢</button>
+                    </div>
+                </div>
+                <div class="card-container" id="estatusContainer"></div>
+                <div class="flex-row mt-10">
+                    <label>Otro estatus:</label>
+                    <input type="text" id="otroEstatus" class="form-control" style="flex: 1;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Herramientas:</div>
+                <div class="herramientas-grid" id="herramientasContainer"></div>
+                <div class="flex-row mt-10">
+                    <label>Formulario:</label>
+                    <input type="text" id="formularioPersonalizado" class="form-control" style="width: 100px;">
+                </div>
+                <div class="flex-row mt-10">
+                    <label>Otra:</label>
+                    <input type="text" id="otraHerramienta" class="form-control" style="flex: 1;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Comentarios:</div>
+                <input type="text" id="comentarios" class="form-control">
+            </div>
+
+            <div class="flex-row">
+                <button class="btn btn-danger" onclick="reiniciarTodo()">↻ Reiniciar (F5)</button>
+                <button class="btn btn-primary" onclick="generarReporte()">Generar reporte</button>
+            </div>
+
+            <div id="mensaje" class="mensaje"></div>
+        </div>
+
+        <div class="right-panel">
+            <!-- Controles de visualización -->
+            <div class="controles-botones">
+                <div class="flex-row" style="justify-content: space-between; margin-bottom: 10px;">
+                    <div class="form-label" style="margin: 0;">📋 Textos rápidos</div>
+                    <div>
+                        <span id="botonesVisibles" style="font-size: 12px; color: #0078D7; font-weight: bold;">0/30 botones</span>
+                    </div>
+                </div>
+                
+                <div class="flex-row" style="gap: 5px;">
+                    <select id="alturaBotones" class="form-control" style="width: 100px;" onchange="cambiarAlturaBotones()">
+                        <option value="300">Pequeño</option>
+                        <option value="500" selected>Mediano</option>
+                        <option value="700">Grande</option>
+                        <option value="900">Extra Grande</option>
+                    </select>
+                    
+                    <select id="columnasBotones" class="form-control" style="width: 100px;" onchange="cambiarColumnasBotones()">
+                        <option value="2">2 columnas</option>
+                        <option value="3">3 columnas</option>
+                        <option value="4">4 columnas</option>
+                    </select>
+                    
+                    <button class="btn btn-info" style="padding: 6px 10px; font-size: 12px;" onclick="refrescarBotones()">
+                        🔄 Refrescar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contenedor de botones rápidos -->
+            <div class="quick-buttons-grid" id="quickButtons"></div>
+
+            <div class="correos-section">
+                <h3>Escalaciones por correo</h3>
+                
+                <div class="flex-row">
+                    <label>ID:</label>
+                    <input type="text" id="idBusqueda" class="form-control" style="width: 120px;">
+                    <button class="btn btn-info" style="padding: 4px 8px; font-size: 11px;" onclick="cargarBaseDatos()">📂 Cargar BD</button>
+                </div>
+
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="opcionRye"> <label for="opcionRye">R y E</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="opcionCc"> <label for="opcionCc">C&C</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="opcionXd"> <label for="opcionXd">XD</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="opcionDirectorio"> <label for="opcionDirectorio" style="color: red;">Directorio Tiendas</label>
+                    </div>
+                </div>
+
+                <button class="btn btn-warning" style="width: 100%;" onclick="copiarCorreos()">Copiar correos</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Editar Botón</h3>
+            <div class="form-group">
+                <label>Nombre del botón:</label>
+                <input type="text" id="editNombreBoton" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Texto a copiar:</label>
+                <input type="text" id="editTextoBoton" class="form-control">
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" onclick="guardarEdicionBoton()">Guardar</button>
+                <button class="btn btn-danger" onclick="cerrarModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== VARIABLES GLOBALES ==========
+        let tipoPedidoActual = 'SL';
+        let solicitudSeleccionada = 'FE Tiempo';
+        let estatusSeleccionado = 'INCO';
+        let segundoEstatus = '';
+        let herramientasSeleccionadas = new Set();
+        
+        let segFolActivo = false;
+        let segFolVencActivo = false;
+        let semaforoBTActivo = false;
+        let camdomActivo = false;
+        let ccActivo = false;
+
+        // ===== CONFIGURACIÓN DE BOTONES =====
+        const CANTIDAD_BOTONES = 30;
+        let quickButtons = [];
+
+        // Función para crear botones por defecto
+        function crearBotonesPorDefecto() {
+            const nuevosBotones = [];
+            for (let i = 1; i <= CANTIDAD_BOTONES; i++) {
+                nuevosBotones.push({
+                    id: i,
+                    nombre: `Botón ${i}`,
+                    texto: `Texto ${i}`
+                });
+            }
+            return nuevosBotones;
+        }
+
+        quickButtons = crearBotonesPorDefecto();
+        console.log('✅ Botones creados:', quickButtons.length);
+
+        let datosCorreos = {
+            'Recepción y Envíos': {},
+            'C&C': {},
+            'Auxiliares XD': {},
+            'Directorio Tiendas': {}
+        };
+        let archivoExcelCargado = false;
+        
+        const herramientasNormalesList = [
+            'SOMS', 'PAO', 'Entrada Única', 'MDA', 'SAP', 'FMS',
+            'SimpliRoute', '4PL', 'Página mensajería', 'Siebel', 'CTE',
+            'Form Incidencias', 'Correo', 'CSC'
+        ];
+
+        // ========== INICIALIZACIÓN ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Iniciando aplicación...');
+            
+            inicializarTipo();
+            inicializarSolicitudesSLMKP();
+            inicializarEstatusSLMKP();
+            inicializarHerramientasNormales();
+            
+            cargarConfiguracionBotones();
+            
+            document.getElementById('segFolCheck').addEventListener('change', function(e) {
+                segFolActivo = e.target.checked;
+                if (segFolActivo) document.getElementById('segFolVencCheck').checked = false;
+            });
+            
+            document.getElementById('segFolVencCheck').addEventListener('change', function(e) {
+                segFolVencActivo = e.target.checked;
+                if (segFolVencActivo) document.getElementById('segFolCheck').checked = false;
+            });
+            
+            document.getElementById('solicitudOtro').addEventListener('input', function(e) {
+                if (e.target.value.trim()) {
+                    solicitudSeleccionada = 'OTRO';
+                }
+            });
+            
+            document.getElementById('otroEstatus').addEventListener('input', function(e) {
+                if (e.target.value.trim()) {
+                    estatusSeleccionado = '';
+                    document.querySelectorAll('#estatusContainer .card').forEach(c => c.classList.remove('selected'));
+                }
+            });
+
+            document.getElementById('ccCheck').addEventListener('change', function(e) {
+                ccActivo = e.target.checked;
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'F5') {
+                    e.preventDefault();
+                    reiniciarTodo();
+                }
+            });
+        });
+
+        // ========== FUNCIONES DE INICIALIZACIÓN ==========
+        function inicializarTipo() {
+            const tipos = ['SL', 'BT', 'MKP', 'Ref Pago'];
+            const container = document.getElementById('tipoContainer');
+            
+            tipos.forEach(tipo => {
+                const card = document.createElement('div');
+                card.className = `card ${tipo === tipoPedidoActual ? 'selected' : ''}`;
+                card.textContent = tipo;
+                card.onclick = (e) => seleccionarTipo(tipo, e);
+                container.appendChild(card);
+            });
+        }
+
+        function seleccionarTipo(tipo, event) {
+            tipoPedidoActual = tipo;
+            document.querySelectorAll('#tipoContainer .card').forEach(c => c.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            actualizarOpcionesPorTipo();
+            actualizarCamdom();
+        }
+
+        function inicializarSolicitudesSLMKP() {
+            const solicitudes = [
+                'FE Tiempo', 'FE Vencida', 'Canc', 'Dev Proceso', 'Dev Aplicada',
+                'Recogido', 'Resurtido', 'CamDom', 'ENR', 'Armado', 'Reprogramar'
+            ];
+            const container = document.getElementById('solicitudContainer');
+            container.innerHTML = '';
+            
+            solicitudes.forEach(sol => {
+                const card = document.createElement('div');
+                card.className = `card ${sol === solicitudSeleccionada ? 'selected' : ''}`;
+                card.textContent = sol;
+                card.onclick = (e) => seleccionarSolicitud(sol, e);
+                container.appendChild(card);
+            });
+        }
+
+        function seleccionarSolicitud(solicitud, event) {
+            solicitudSeleccionada = solicitud;
+            document.querySelectorAll('#solicitudContainer .card').forEach(c => c.classList.remove('selected'));
+            event.target.classList.add('selected');
+            document.getElementById('solicitudOtro').value = '';
+            
+            automatizarSeleccionHerramientas();
+            actualizarCamdom();
+        }
+
+        function inicializarEstatusSLMKP() {
+            const estatus = [
+                'INCO', 'CONF', 'VBOD', 'RBOD', 'LIPR', 'EMEN', 'VMEN',
+                'VCTE', 'ETOT', 'CANC', 'VALM/BACR', 'RACR/RALM', 'RALM'
+            ];
+            const container = document.getElementById('estatusContainer');
+            container.innerHTML = '';
+            
+            estatus.forEach(est => {
+                const card = document.createElement('div');
+                card.className = `card ${est === estatusSeleccionado ? 'selected' : ''}`;
+                card.textContent = est;
+                card.onclick = (e) => seleccionarEstatus(est, e);
+                container.appendChild(card);
+            });
+        }
+
+        function seleccionarEstatus(estatus, event) {
+            estatusSeleccionado = estatus;
+            document.querySelectorAll('#estatusContainer .card').forEach(c => c.classList.remove('selected'));
+            event.target.classList.add('selected');
+            document.getElementById('otroEstatus').value = '';
+            
+            const estatusCC = ['VALM/BACR', 'RACR/RALM', 'RALM'];
+            if (estatusCC.includes(estatus)) {
+                document.getElementById('ccCheck').checked = true;
+                ccActivo = true;
+            }
+            
+            automatizarSeleccionHerramientas();
+        }
+
+        function inicializarHerramientasNormales() {
+            const container = document.getElementById('herramientasContainer');
+            container.innerHTML = '';
+            
+            herramientasNormalesList.forEach(herramienta => {
+                const card = document.createElement('div');
+                card.className = 'herramienta-item';
+                card.textContent = herramienta;
+                card.onclick = () => toggleHerramienta(card, herramienta);
+                container.appendChild(card);
+            });
+        }
+
+        function inicializarBotonesRapidos() {
+            console.log('🎯 Inicializando botones rápidos...');
+            const container = document.getElementById('quickButtons');
+            
+            if (!container) {
+                console.error('❌ No se encontró el contenedor quickButtons');
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            if (!quickButtons || quickButtons.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 20px; color: #999;">No hay botones disponibles</div>';
+                return;
+            }
+            
+            let botonesCreados = 0;
+            
+            quickButtons.forEach((btn, index) => {
+                try {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'quick-button-item';
+                    
+                    const button = document.createElement('button');
+                    button.className = 'quick-button';
+                    button.textContent = btn.nombre || `Botón ${btn.id}`;
+                    button.setAttribute('data-id', btn.id);
+                    button.setAttribute('data-index', index);
+                    button.onclick = (e) => {
+                        e.preventDefault();
+                        copiarTextoRapido(btn.texto || `Texto ${btn.id}`);
+                    };
+                    
+                    const editBtn = document.createElement('button');
+                    editBtn.className = 'edit-button';
+                    editBtn.textContent = '✎';
+                    editBtn.setAttribute('data-id', btn.id);
+                    editBtn.onclick = (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        abrirEditorBoton(btn.id);
+                    };
+                    
+                    itemDiv.appendChild(button);
+                    itemDiv.appendChild(editBtn);
+                    container.appendChild(itemDiv);
+                    botonesCreados++;
+                } catch (error) {
+                    console.error('❌ Error creando botón:', error);
+                }
+            });
+            
+            console.log(`✅ ${botonesCreados} botones creados correctamente`);
+            actualizarContadorBotones();
+        }
+
+        function actualizarContadorBotones() {
+            const totalBotones = quickButtons.length;
+            const botonesVisibles = document.getElementById('botonesVisibles');
+            if (botonesVisibles) {
+                botonesVisibles.textContent = `${totalBotones}/${CANTIDAD_BOTONES} botones`;
+            }
+        }
+
+        // ========== FUNCIONES DE ACTUALIZACIÓN ==========
+        function actualizarOpcionesPorTipo() {
+            const semaforoBtn = document.getElementById('semaforoBtn');
+            const camdomBtn = document.getElementById('camdomBtn');
+            
+            herramientasSeleccionadas.clear();
+            
+            document.querySelectorAll('#tipoContainer .card').forEach(card => {
+                if (card.textContent === tipoPedidoActual) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+            
+            if (tipoPedidoActual === 'Ref Pago') {
+                actualizarSolicitudesRefPago();
+                actualizarEstatusRefPago();
+                actualizarHerramientasRefPago();
+                semaforoBtn.style.display = 'none';
+            } else if (tipoPedidoActual === 'BT') {
+                actualizarSolicitudesBT();
+                actualizarEstatusBT();
+                inicializarHerramientasNormales();
+                semaforoBtn.style.display = 'inline-block';
+                semaforoBtn.style.background = semaforoBTActivo ? '#ff4444' : '#4CAF50';
+                semaforoBtn.textContent = semaforoBTActivo ? '🔴' : '🟢';
+            } else if (tipoPedidoActual === 'SL') {
+                inicializarSolicitudesSLMKP();
+                inicializarEstatusSLMKP();
+                inicializarHerramientasNormales();
+                semaforoBtn.style.display = 'none';
+            } else if (tipoPedidoActual === 'MKP') {
+                inicializarSolicitudesSLMKP();
+                inicializarEstatusSLMKP();
+                inicializarHerramientasNormales();
+                semaforoBtn.style.display = 'none';
+            }
+            
+            automatizarSeleccionHerramientas();
+            actualizarCamdom();
+        }
+
+        function actualizarSolicitudesRefPago() {
+            const solicitudes = ['Pending / Cancelled', 'Reprocesos', 'Crear pedido', 'Fecha de entrega'];
+            const container = document.getElementById('solicitudContainer');
+            container.innerHTML = '';
+            
+            solicitudes.forEach(sol => {
+                const card = document.createElement('div');
+                card.className = `card ${sol === solicitudSeleccionada ? 'selected' : ''}`;
+                card.textContent = sol;
+                card.onclick = (e) => seleccionarSolicitud(sol, e);
+                container.appendChild(card);
+            });
+        }
+
+        function actualizarSolicitudesBT() {
+            const solicitudes = [
+                'FE Tiempo', 'FE Vencida', 'Canc', 'Dev Proceso', 'Dev Aplicada',
+                'Recogido', 'Resurtido', 'CamDom', 'ENR', 'Armado', 'Reprogramar'
+            ];
+            const container = document.getElementById('solicitudContainer');
+            container.innerHTML = '';
+            
+            solicitudes.forEach(sol => {
+                const card = document.createElement('div');
+                card.className = `card ${sol === solicitudSeleccionada ? 'selected' : ''}`;
+                card.textContent = sol;
+                card.onclick = (e) => seleccionarSolicitud(sol, e);
+                container.appendChild(card);
+            });
+        }
+
+        function actualizarEstatusRefPago() {
+            const estatus = ['Pending', 'Cancelled without charge', 'Reject', 'Ok to ship'];
+            const container = document.getElementById('estatusContainer');
+            container.innerHTML = '';
+            
+            estatus.forEach(est => {
+                const card = document.createElement('div');
+                card.className = `card ${est === estatusSeleccionado ? 'selected' : ''}`;
+                card.textContent = est;
+                card.onclick = (e) => seleccionarEstatus(est, e);
+                container.appendChild(card);
+            });
+        }
+
+        function actualizarEstatusBT() {
+            const estatus = [
+                'LOCACIÓN DE TRANSFERENCIA', 'LOCACIÓN DE ENTREGA', 'VCTE',
+                'ENTREGADO', 'ASA S/F', 'ASA C/F', 'RECOGIDO CREADO',
+                'RECOGIDO RECIBIDO', 'EN ESPERA DE REEMBOLSO'
+            ];
+            const container = document.getElementById('estatusContainer');
+            container.innerHTML = '';
+            
+            estatus.forEach(est => {
+                const card = document.createElement('div');
+                card.className = `card ${est === estatusSeleccionado ? 'selected' : ''}`;
+                card.textContent = est;
+                card.onclick = (e) => seleccionarEstatus(est, e);
+                container.appendChild(card);
+            });
+        }
+
+        function actualizarHerramientasRefPago() {
+            const herramientas = ['FMS', 'Drive Reprocesos', 'Correo'];
+            const container = document.getElementById('herramientasContainer');
+            container.innerHTML = '';
+            
+            herramientas.forEach(herramienta => {
+                const card = document.createElement('div');
+                card.className = 'herramienta-item';
+                card.textContent = herramienta;
+                card.onclick = () => toggleHerramienta(card, herramienta);
+                container.appendChild(card);
+            });
+        }
+
+        function toggleHerramienta(element, herramienta) {
+            if (herramientasSeleccionadas.has(herramienta)) {
+                herramientasSeleccionadas.delete(herramienta);
+                element.classList.remove('selected');
+            } else {
+                herramientasSeleccionadas.add(herramienta);
+                element.classList.add('selected');
+            }
+        }
+
+        function actualizarCamdom() {
+            const camdomBtn = document.getElementById('camdomBtn');
+            if (solicitudSeleccionada === 'CamDom') {
+                camdomBtn.style.display = 'inline-block';
+                if (tipoPedidoActual === 'MKP') {
+                    camdomBtn.style.background = '#ff4444';
+                    camdomBtn.textContent = '🔴';
+                    camdomBtn.disabled = true;
+                } else {
+                    camdomBtn.style.background = camdomActivo ? '#4CAF50' : '#ff4444';
+                    camdomBtn.textContent = camdomActivo ? '🟢' : '🔴';
+                    camdomBtn.disabled = false;
+                }
+            } else {
+                camdomBtn.style.display = 'none';
+            }
+        }
+
+        function toggleSemaforo() {
+            semaforoBTActivo = !semaforoBTActivo;
+            const btn = document.getElementById('semaforoBtn');
+            btn.style.background = semaforoBTActivo ? '#ff4444' : '#4CAF50';
+            btn.textContent = semaforoBTActivo ? '🔴' : '🟢';
+        }
+
+        function toggleCamdom() {
+            camdomActivo = !camdomActivo;
+            actualizarCamdom();
+        }
+
+        // ========== FUNCIONES DE AUTOMATIZACIÓN DE HERRAMIENTAS ==========
+        function automatizarSeleccionHerramientas() {
+            if (tipoPedidoActual === 'Ref Pago') {
+                return;
+            }
+            
+            herramientasSeleccionadas.clear();
+            document.querySelectorAll('#herramientasContainer .herramienta-item').forEach(el => {
+                el.classList.remove('selected');
+            });
+            
+            const tipo = tipoPedidoActual;
+            const solicitud = solicitudSeleccionada;
+            const estatus = estatusSeleccionado;
+            
+            if (tipo === 'BT') {
+                if (solicitud === 'FE Tiempo') {
+                    if (estatus === 'LOCACIÓN DE TRANSFERENCIA') {
+                        seleccionarMultiplesHerramientas(['PAO', 'SimpliRoute']);
+                    } else if (estatus === 'LOCACIÓN DE ENTREGA' || estatus === 'VCTE') {
+                        seleccionarMultiplesHerramientas(['PAO', 'SimpliRoute']);
+                    }
+                } else if (solicitud === 'FE Vencida') {
+                    if (estatus === 'LOCACIÓN DE TRANSFERENCIA') {
+                        seleccionarMultiplesHerramientas(['PAO', 'SimpliRoute']);
+                    } else if (estatus === 'LOCACIÓN DE ENTREGA' || estatus === 'VCTE' || estatus === 'ENTREGADO') {
+                        seleccionarMultiplesHerramientas(['PAO', 'SimpliRoute', 'Correo']);
+                    } else if (['ASA S/F', 'ASA C/F', 'RECOGIDO CREADO', 'RECOGIDO RECIBIDO', 'EN ESPERA DE REEMBOLSO'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['PAO', 'Correo']);
+                    }
+                } else if (solicitud === 'Canc') {
+                    if (estatus === 'LOCACIÓN DE TRANSFERENCIA' || estatus === 'LOCACIÓN DE ENTREGA') {
+                        seleccionarMultiplesHerramientas(['PAO', 'SAP']);
+                    }
+                } else if (solicitud === 'Dev Proceso') {
+                    if (estatus === 'LOCACIÓN DE TRANSFERENCIA' || estatus === 'VCTE' || estatus === 'LOCACIÓN DE ENTREGA' || estatus === 'ENTREGADO') {
+                        seleccionarMultiplesHerramientas(['PAO', 'SAP'])
+                    }
+                }
+            } else if (tipo === 'SL') {
+                if (solicitud === 'FE Tiempo') {
+                    if (estatus === 'INCO') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    } else if (['CONF', 'VALM/BACR', 'RACR/RALM', 'RALM'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    } else if (['VBOD', 'RBOD'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería']);
+                    } else if (estatus === 'CANC') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP']);
+                    }
+                } else if (solicitud === 'FE Vencida') {
+                    if (estatus === 'INCO') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
+                    } else if (['CONF', 'VBOD', 'LIPR'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
+                    } else if (estatus === 'RBOD') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Correo']);
+                    } else if (['VCTE', 'VALM/BACR', 'RACR/RALM', 'RALM'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
+                    } else if (estatus === 'VMEN') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería']);
+                    } else if (estatus === 'ETOT' || estatus === 'CANC') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Página mensajería', 'SimpliRoute']);
+                    }
+                } else if (solicitud === 'Canc') {
+                    if (['CONF', 'VBOD', 'RBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería']);
+                    } else if (['INCO'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP', 'CSC']);
+                    }
+                } else if (solicitud === 'Dev Proceso') {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería', 'SAP']);
+                    } else if (estatus === 'RBOD') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'SAP']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'SAP']);
+                    }
+                }  else if (solicitud === 'Dev Aplicada') {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería', 'SAP']);
+                    } else if (estatus === 'RBOD') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'SAP']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'SAP']);
+                    }
+                } else if (solicitud === 'Recogido') {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería', 'Correo']);
+                    } else if (estatus === 'RBOD') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Correo']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'Correo']);
+                    }
+                } else if (solicitud === 'Resurtido') {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería', 'Correo']);
+                    } else if (estatus === 'RBOD') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Correo']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'Correo']);
+                    }
+                }  else if (solicitud === 'CamDom') {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'FMS']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'FMS']);
+                    } else if (estatus === 'RBOD') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'FMS']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'FMS']);
+                    }
+                }  else if (solicitud === 'ENR') {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería', 'Correo']);
+                    } else if (estatus === 'RBOD') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Correo']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'Correo']);
+                    }
+                } 
+            } else if (tipo === 'MKP') {
+                if (solicitud === 'FE Vencida') {
+                    if (estatus === 'EMEN') {
+                        seleccionarMultiplesHerramientas(['PAO', '4PL']);
+                    } else if (estatus === 'LIPR') {
+                        seleccionarMultiplesHerramientas(['PAO', '4PL']);
+                    } else if (estatus === 'VMEN') {
+                        seleccionarMultiplesHerramientas(['PAO', 'Página mensajería']);
+                    }
+                }
+            } 
+        }
+
+        function seleccionarMultiplesHerramientas(herramientas) {
+            herramientas.forEach(herramienta => {
+                herramientasSeleccionadas.add(herramienta);
+                document.querySelectorAll('#herramientasContainer .herramienta-item').forEach(el => {
+                    if (el.textContent === herramienta) {
+                        el.classList.add('selected');
+                    }
+                });
+            });
+        }
+
+        // ========== FUNCIONES DE DETECCIÓN ==========
+        function detectarTipoPedido() {
+            const pedido = document.getElementById('pedido').value;
+            let nuevoTipo = tipoPedidoActual;
+            
+            if (pedido.length >= 2) {
+                if (pedido.length > 11 && /^\d+$/.test(pedido)) {
+                    nuevoTipo = 'Ref Pago';
+                } else {
+                    const primerosDos = pedido.substring(0, 2);
+                    if (primerosDos === '97' || primerosDos === '98') {
+                        nuevoTipo = 'BT';
+                    } else {
+                        nuevoTipo = 'SL';
+                    }
+                }
+            }
+            
+            if (nuevoTipo !== tipoPedidoActual) {
+                tipoPedidoActual = nuevoTipo;
+                actualizarOpcionesPorTipo();
+                
+                document.querySelectorAll('#tipoContainer .card').forEach(card => {
+                    if (card.textContent === tipoPedidoActual) {
+                        card.classList.add('selected');
+                    } else {
+                        card.classList.remove('selected');
+                    }
+                });
+            }
+        }
+
+        // ========== FUNCIONES DE BOTONES RÁPIDOS ==========
+        function copiarTextoRapido(texto) {
+            navigator.clipboard.writeText(texto).then(() => {
+                mostrarMensaje('¡Texto copiado al portapapeles!', 'success');
+            }).catch(err => {
+                mostrarMensaje('Error al copiar: ' + err, 'error');
+            });
+        }
+
+        function abrirEditorBoton(id) {
+            const boton = quickButtons.find(b => b.id === id);
+            if (!boton) {
+                console.error('Botón no encontrado:', id);
+                return;
+            }
+            
+            document.getElementById('editNombreBoton').value = boton.nombre;
+            document.getElementById('editTextoBoton').value = boton.texto;
+            document.getElementById('editModal').style.display = 'block';
+            document.getElementById('editModal').dataset.botonId = id;
+            document.getElementById('modalTitle').textContent = `Editar Botón ${id}`;
+        }
+
+        function guardarEdicionBoton() {
+            const id = parseInt(document.getElementById('editModal').dataset.botonId);
+            const nombre = document.getElementById('editNombreBoton').value.trim() || `Botón ${id}`;
+            const texto = document.getElementById('editTextoBoton').value.trim() || `Texto ${id}`;
+            
+            const boton = quickButtons.find(b => b.id === id);
+            if (boton) {
+                boton.nombre = nombre;
+                boton.texto = texto;
+                guardarConfiguracionBotones();
+                inicializarBotonesRapidos();
+                mostrarMensaje(`✅ Botón "${nombre}" guardado permanentemente`, 'success');
+            }
+            cerrarModal();
+        }
+
+        function cerrarModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        // ========== FUNCIONES DE PERSISTENCIA ==========
+        function guardarConfiguracionBotones() {
+            try {
+                localStorage.setItem('quickButtons', JSON.stringify(quickButtons));
+                console.log('✅ Botones guardados en localStorage:', quickButtons.length);
+            } catch (e) {
+                console.error('Error guardando configuración:', e);
+            }
+        }
+
+        function cargarConfiguracionBotones() {
+            try {
+                const saved = localStorage.getItem('quickButtons');
+                if (saved) {
+                    const cargados = JSON.parse(saved);
+                    if (Array.isArray(cargados) && cargados.length > 0) {
+                        quickButtons = cargados;
+                        console.log('✅ Botones cargados de localStorage:', quickButtons.length);
+                    } else {
+                        console.log('⚠️ No hay botones guardados válidos, usando por defecto');
+                        quickButtons = crearBotonesPorDefecto();
+                    }
+                } else {
+                    console.log('📝 Primera vez: creando botones por defecto');
+                    quickButtons = crearBotonesPorDefecto();
+                }
+                
+                actualizarContadorBotones();
+                inicializarBotonesRapidos();
+                
+            } catch (e) {
+                console.error('Error cargando configuración:', e);
+                quickButtons = crearBotonesPorDefecto();
+                inicializarBotonesRapidos();
+            }
+        }
+
+        // ========== Correo que aún no funciona xDD ==========
+        function cargarBaseDatos() {
+            archivoExcelCargado = true;
+            
+            datosCorreos = {
+                'Recepción y Envíos': {
+                    '123': ['correo1@ejemplo.com', 'correo2@ejemplo.com'],
+                    '456': ['correo3@ejemplo.com']
+                },
+                'C&C': {
+                    '123': ['cc@ejemplo.com']
+                },
+                'Auxiliares XD': {},
+                'Directorio Tiendas': {
+                    '123': ['tienda@ejemplo.com']
+                }
+            };
+            
+            mostrarMensaje('Base de datos cargada correctamente', 'success');
+        }
+
+        function copiarCorreos() {
+            const id = document.getElementById('idBusqueda').value.trim();
+            if (!id) {
+                mostrarMensaje('Por favor ingresa un ID', 'error');
+                return;
+            }
+            
+            const opciones = [];
+            if (document.getElementById('opcionRye').checked) opciones.push('R y E');
+            if (document.getElementById('opcionCc').checked) opciones.push('C&C');
+            if (document.getElementById('opcionXd').checked) opciones.push('XD');
+            if (document.getElementById('opcionDirectorio').checked) {
+                if (!confirm('¿Estás seguro de seleccionar el directorio? Estos correos son para uso especial')) {
+                    return;
+                }
+                opciones.push('Directorio Tiendas');
+            }
+            
+            if (opciones.length === 0) {
+                mostrarMensaje('Por favor selecciona al menos una opción', 'error');
+                return;
+            }
+            
+            const mapaHojas = {
+                'R y E': 'Recepción y Envíos',
+                'C&C': 'C&C',
+                'XD': 'Auxiliares XD',
+                'Directorio Tiendas': 'Directorio Tiendas'
+            };
+            
+            let resultados = [];
+            
+            opciones.forEach(opcion => {
+                const nombreHoja = mapaHojas[opcion];
+                if (datosCorreos[nombreHoja] && datosCorreos[nombreHoja][id]) {
+                    resultados = resultados.concat(datosCorreos[nombreHoja][id]);
+                }
+            });
+            
+            resultados = [...new Set(resultados)];
+            
+            let textoResultado;
+            if (resultados.length > 0) {
+                textoResultado = resultados.join(', ');
+            } else {
+                textoResultado = 'No se encontraron correos para el ID especificado en las opciones seleccionadas.';
+            }
+            
+            navigator.clipboard.writeText(textoResultado).then(() => {
+                mostrarMensaje('¡Correos copiados al portapapeles!', 'success');
+            }).catch(err => {
+                mostrarMensaje('Error al copiar: ' + err, 'error');
+            });
+        }
+
+        // ========== Generador de reportes  ==========
+        function generarReporte() {
+            const pedido = document.getElementById('pedido').value.trim();
+            if (!pedido) {
+                mostrarMensaje('Por favor ingresa un pedido', 'error');
+                return;
+            }
+            
+            let tituloPedido;
+            if (tipoPedidoActual === 'SL' || tipoPedidoActual === 'MKP') {
+                tituloPedido = 'Remisión';
+            } else if (tipoPedidoActual === 'BT') {
+                tituloPedido = 'OV';
+            } else {
+                tituloPedido = 'Referencia de pago';
+            }
+            
+            const tituloSKU = tipoPedidoActual === 'Ref Pago' ? 'ATG ID:' : 'SKU:';
+            const textoSkus = document.getElementById('sku').value.trim();
+            const skusProcesados = textoSkus ? textoSkus.split(/[,\s\n\./]+/).filter(s => s.trim()) : [];
+            
+            const textoOtroSolicitud = document.getElementById('solicitudOtro').value.trim();
+            let textoSolicitud;
+            
+            if (solicitudSeleccionada === 'OTRO') {
+                textoSolicitud = textoOtroSolicitud;
+            } else {
+                const textosNormales = {
+                    'FE Tiempo': 'Cliente se comunica para conocer el estatus de su pedido, el cual se encuentra con fecha en tiempo',
+                    'FE Vencida': 'Cliente se comunica para conocer el estatus de su pedido, el cual presenta fecha vencida',
+                    'Canc': 'Cliente se comunica para solicitar la cancelación de su pedido. \n Motivo de cancelación:',
+                    'Dev Proceso': 'Cliente se comunica para conocer el estatus de su reembolso el cual se encuentra en proceso',
+                    'Dev Aplicada': 'Cliente se comunica para conocer el estatus de su reembolso el cual se encuentra aplicado en SAP',
+                    'Recogido': 'Cliente solicita la recolección de su pedido al domicilio indicado',
+                    'Resurtido': 'Cliente indica que su pedido presenta una incidencia por lo que requiere el reenvío de la mercancía',
+                    'CamDom': 'Cliente se comunica para solicitar cambiar el lugar de entrega',
+                    'ENR': 'Cliente se comunica para reportar que no recibió su pedido',
+                    'Armado': 'Cliente se comunica para solicitar el armado de su pedido',
+                    'Reprogramar': 'Cliente solicita reprogramar la entrega de su pedido'
+                };
+                
+                const textosRefPago = {
+                    'Fecha de entrega': 'Cliente menciona que realizó una transferencia o pago, se valida que ya generó número de pedido',
+                    'Pending / Cancelled': 'Cliente menciona que realizó una transferencia o pago, pero no ve generado su pedido',
+                    'Reprocesos': 'Cliente se comunica para solicitar su devolución por una transferencia o pago vencido',
+                    'Crear pedido': 'Cliente se comunica para solicitar que su pedido sea generado con la transferencia vencida, ya que le interesa el producto y no la devolución'
+                };
+                
+                if (solicitudSeleccionada === 'FE Tiempo' && estatusSeleccionado === 'INCO' && (tipoPedidoActual === 'SL' || tipoPedidoActual === 'MKP')) {
+                    textoSolicitud = 'Cliente se comunica para conocer el estatus de su pedido, el cual no cuenta con fecha de entrega';
+                } else if (tipoPedidoActual === 'Ref Pago') {
+                    textoSolicitud = textosRefPago[solicitudSeleccionada] || solicitudSeleccionada;
+                } else {
+                    textoSolicitud = textosNormales[solicitudSeleccionada] || solicitudSeleccionada;
+                }
+            }
+            
+            if (!textoSolicitud) {
+                mostrarMensaje('Por favor selecciona una solicitud o escribe en OTRO', 'error');
+                return;
+            }
+            
+            let estatusTexto;
+            const otroEstatus = document.getElementById('otroEstatus').value.trim();
+            if (otroEstatus) {
+                estatusTexto = otroEstatus;
+            } else if (estatusSeleccionado) {
+                estatusTexto = estatusSeleccionado;
+                if (segundoEstatus) {
+                    estatusTexto += ` -> ${segundoEstatus}`;
+                }
+            } else {
+                mostrarMensaje('Por favor selecciona un estatus válido', 'error');
+                return;
+            }
+            
+            const herramientas = Array.from(herramientasSeleccionadas);
+            const formularioPersonalizado = document.getElementById('formularioPersonalizado').value.trim();
+            if (formularioPersonalizado) {
+                herramientas.push(`Formulario: ${formularioPersonalizado}`);
+            }
+            
+            const otraHerramienta = document.getElementById('otraHerramienta').value.trim();
+            if (otraHerramienta) {
+                herramientas.push(`Otro: ${otraHerramienta}`);
+            }
+            
+            let textoIndicacion = '';
+            
+            if (segFolActivo) {
+                textoIndicacion = 'Te ofrezco una disculpa por el inconveniente, tu seguimiento continúa en proceso, es necesario esperar el tiempo de solución brindado en tu primer reporte.';
+            } else if (segFolVencActivo) {
+                if (solicitudSeleccionada === 'Recogido') {
+                    textoIndicacion = 'Te ofrecemos una sincera disculpa por los inconvenientes, la solicitud de recolección continúa en proceso, aún podemos demorar 72 horas hábiles.';
+                } else {
+                    textoIndicacion = 'Te ofrecemos una sincera disculpa por los inconvenientes, la solicitud continúa en proceso de validación, aún podemos demorar de 5 a 7 días hábiles.';
+                }
+            } else if (tipoPedidoActual === 'Ref Pago') {
+                if (solicitudSeleccionada === 'Pending / Cancelled') {
+                    textoIndicacion = 'Se indica esperar 72 horas hábiles al momento del contacto';
+                } else if (solicitudSeleccionada === 'Reprocesos') {
+                    if (['Pending', 'Cancelled without charge', 'Reject'].includes(estatusSeleccionado)) {
+                        textoIndicacion = 'Pedido no generado esperar 10 días hábiles';
+                    } else if (estatusSeleccionado === 'Ok to ship') {
+                        textoIndicacion = 'Devolución lista para ser recolectada en tienda física con la referencia de pago indicada en el reporte';
+                    }
+                }
+            } else if (tipoPedidoActual === 'BT') {
+                let textoBase = '';
+                if (solicitudSeleccionada === 'FE Tiempo') {
+                    textoBase = 'Cliente se comunica para conocer el estatus de su pedido, el cual se encuentra con fecha en tiempo';
+                } else if (solicitudSeleccionada === 'FE Vencida') {
+                    textoBase = 'Fecha vencida se indica esperar 5 días hábiles al momento de contacto';
+                } else if (solicitudSeleccionada === 'Canc') {
+                    textoBase = 'Cliente se comunica para solicitar la cancelación de su pedido. Motivo de cancelación:';
+                } else {
+                    textoBase = textoSolicitud;
+                }
+                
+                if (semaforoBTActivo) {
+                    if (solicitudSeleccionada === 'FE Vencida') {
+                        textoIndicacion = textoBase + ' Se escala para solicitar el envío a la brevedad';
+                    } else if (solicitudSeleccionada === 'Canc') {
+                        textoIndicacion = textoBase + ' No permite pausar, se escala para solicitar el cambio de estatus';
+                    } else if (solicitudSeleccionada === 'CamDom') {
+                        textoIndicacion = textoBase + ' Se escala a CR para solicitar el cambio de estatus y proceder con el cambio de domicilio';
+                    }
+                } else {
+                    if (solicitudSeleccionada === 'FE Vencida') {
+                        textoIndicacion = textoBase + ' Se asigna fecha en PAO';
+                    } else if (solicitudSeleccionada === 'Canc') {
+                        textoIndicacion = textoBase + ' Pedido se pausa en PAO y se sube devolución a SAP';
+                    } else if (solicitudSeleccionada === 'CamDom') {
+                        textoIndicacion = textoBase + ' Validación de datos correcta, se realiza el cambio de domicilio en PAO';
+                    }
+                }
+            } else if (tipoPedidoActual === 'SL' || tipoPedidoActual === 'MKP') {
+                if (solicitudSeleccionada === 'FE Tiempo') {
+                    if (estatusSeleccionado === 'INCO') {
+                        textoIndicacion = 'Continuamos trabajando para surtir tu pedido, por el momento no podemos brindarte una fecha de entrega, en cuanto contemos con ella la podrás visualizar en el apartado de “Mis pedidos” en www.liverpool.com.mx y Liverpool pocket.';
+                    } else if (estatusSeleccionado === 'VCTE') {
+                        textoIndicacion = 'El pedido está en camino a tu domicilio, en caso de que no se entregue el día de hoy es posible que se concrete en las próximas 48h en caso contrario te invitamos a comunicarte por este mismo canal.';
+                    }
+                } else if (solicitudSeleccionada === 'FE Vencida') {
+                    if (tipoPedidoActual === 'MKP') {
+                        if (['INCO', 'LIPR', 'EMEN'].includes(estatusSeleccionado)) {
+                            textoIndicacion = 'Fecha vencida se indica esperar 7 días hábiles al momento de contacto';
+                        } else if (['VMEN', 'VCTE', 'VALM/BACR', 'RACR/RALM', 'RALM'].includes(estatusSeleccionado)) {
+                            textoIndicacion = 'Fecha vencida se indica esperar 5 días hábiles al momento de contacto';
+                        }
+                    } else {
+                        textoIndicacion = 'Fecha vencida se indica esperar 10 días hábiles al momento de contacto';
+                    }
+                } else if (solicitudSeleccionada === 'Canc') {
+                    if (['INCO', 'CONF', 'VBOD', 'RBOD', 'VALM/BACR', 'RACR/RALM', 'RALM'].includes(estatusSeleccionado)) {
+                        textoIndicacion = 'Tu pedido está cancelado y la devolución está en proceso, tu saldo se verá reflejado de acuerdo a tu método de pago de la siguiente manera: \n\n- Tarjetas Liverpool y Liverpool Visa en 3 días hábiles. \n- Tarjetas de crédito externas en 6 días hábiles. \n- Monedero Electrónico Digital en 5-7 días hábiles. \n- PayPal en 7 días hábiles. \n- Tarjetas de débito BBVA, Citibanex y BanCoppel 6 días hábiles. \n- Pagos referenciados (tiendas de conveniencia), transferencias SPEI y OpenPay debes acudir al área de crédito y/o C&C de la tienda de tu preferencia en un periodo de 5 a 10 días hábiles \n\nNo es necesario que te vuelvas a comunicar para el seguimiento a tu devolución.';
+                    } else if (['LIPR', 'EMEN', 'VMEN', 'VCTE', 'ETOT'].includes(estatusSeleccionado)) {
+                        textoIndicacion = 'Te ofrezco una sincera disculpa por el inconveniente, revisando el estatus que presenta tu pedido, no nos permite realizar la cancelación de manera inmediata, sin embargo en este momento escalé tu reporte con el área correspondiente para solicitar detener la entrega, por favor comunícate nuevamente por este canal en un lapso de 7 a 10 días hábiles para validar el avance.';
+                    }
+                } 
+            } if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' || tipoPedidoActual === 'MKP') && 
+                solicitudSeleccionada === 'Recogido' && 
+                (estatusSeleccionado === 'ETOT' || estatusSeleccionado === 'ENTREGADO')) {
+                
+                const lineas = [];
+                lineas.push('Recogido: ');
+                lineas.push('Fecha de recolección:');
+                lineas.push(`Número de pedido: ${pedido}`);
+
+                if (skusProcesados.length > 0) {
+                    lineas.push(`Sku: ${skusProcesados.join(', ')}`);
+                } else {
+                    lineas.push('Sku: ');
+                }
+
+                lineas.push('Piezas: ');
+                lineas.push('Motivo de solicitud: ');
+                lineas.push('Teléfono: ');
+                lineas.push('Domicilio de recolección: ');
+
+                const reporte = lineas.join('\n');
+                navigator.clipboard.writeText(reporte).then(() => {
+                    mostrarMensaje('¡Reporte de Recogido copiado!', 'success');
+                }).catch(err => {
+                    mostrarMensaje('Error al copiar: ' + err, 'error');
+                });
+                
+                return;
+            } if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' ) && 
+                solicitudSeleccionada === 'ENR' && 
+                (estatusSeleccionado === 'ETOT' || estatusSeleccionado === 'ENTREGADO')) {
+                
+                const lineas = [];
+                lineas.push(`Número de pedido: ${pedido}`);
+
+                if (skusProcesados.length > 0) {
+                    lineas.push(`Sku: ${skusProcesados.join(', ')}`);
+                } else {
+                    lineas.push('Sku: ');
+                }
+
+                lineas.push('Piezas: ');
+                lineas.push('Motivo de solicitud: ');
+                lineas.push('Teléfono: ');
+                lineas.push('Domicilio: ');
+                
+                const reporte = lineas.join('\n');
+                navigator.clipboard.writeText(reporte).then(() => {
+                    mostrarMensaje('¡Reporte de ENR copiado!', 'success');
+                }).catch(err => {
+                    mostrarMensaje('Error al copiar: ' + err, 'error');
+                });
+                
+                return;
+            }
+            
+            let textoCamdom = '';
+            if (solicitudSeleccionada === 'CamDom') {
+                if (tipoPedidoActual === 'MKP') {
+                    textoCamdom = 'No procede cambio de lugar de entrega porque es un pedido MKP';
+                } else if (camdomActivo) {
+                    textoCamdom = 'Validación de datos correcta se realiza cambio de lugar de entrega';
+                } else {
+                    textoCamdom = 'No procede cambio de lugar de entrega';
+                }
+            }
+            
+            const formularioIncidenciasSeleccionado = herramientasSeleccionadas.has('Form Incidencias');
+            const comentarios = document.getElementById('comentarios').value.trim();
+            
+            const lineas = [];
+            
+            if (segFolActivo || segFolVencActivo) {
+                lineas.push('Caso Anterior:');
+            }
+            
+            lineas.push(`${tituloPedido}: ${pedido}`);
+            
+            if (skusProcesados.length > 0) {
+                lineas.push(`${tituloSKU} ${skusProcesados.join(', ')}`);
+            } else if (tipoPedidoActual === 'Ref Pago') {
+                lineas.push(`${tituloSKU}`);
+            }
+            
+            lineas.push(`Estatus: ${estatusTexto}`);
+            lineas.push(`¿Que solicita el cliente?: ${textoSolicitud}`);
+            
+            if (herramientas.length > 0) {
+                lineas.push(`Herramientas usadas: ${herramientas.join(', ')}`);
+            }
+            
+            if (formularioIncidenciasSeleccionado) {
+                lineas.push('Se llena formulario Incidencias para solicitar autorización');
+            }
+            
+            if (textoCamdom) {
+                lineas.push(textoCamdom);
+            }
+            
+            if (textoIndicacion) {
+                lineas.push(`¿Que se le indicó al cliente?: ${textoIndicacion}`);
+            } else {
+                lineas.push('¿Que se le indicó al cliente?: ');
+            }
+            
+            if (comentarios) {
+                lineas.push(`Comentarios: ${comentarios}`);
+            }
+            
+            const reporte = lineas.join('\n');
+            
+            navigator.clipboard.writeText(reporte).then(() => {
+                mostrarMensaje('¡Reporte copiado al portapapeles!', 'success');
+            }).catch(err => {
+                mostrarMensaje('Error al copiar: ' + err, 'error');
+            });
+        }
+
+        function reiniciarTodo() {
+            document.getElementById('pedido').value = '';
+            document.getElementById('sku').value = '';
+            document.getElementById('solicitudOtro').value = '';
+            document.getElementById('otroEstatus').value = '';
+            document.getElementById('formularioPersonalizado').value = '';
+            document.getElementById('otraHerramienta').value = '';
+            document.getElementById('comentarios').value = '';
+            document.getElementById('idBusqueda').value = '';
+            
+            document.getElementById('opcionRye').checked = false;
+            document.getElementById('opcionCc').checked = false;
+            document.getElementById('opcionXd').checked = false;
+            document.getElementById('opcionDirectorio').checked = false;
+            
+            document.getElementById('segFolCheck').checked = false;
+            document.getElementById('segFolVencCheck').checked = false;
+            document.getElementById('ccCheck').checked = false;
+            
+            segFolActivo = false;
+            segFolVencActivo = false;
+            semaforoBTActivo = false;
+            camdomActivo = false;
+            ccActivo = false;
+            herramientasSeleccionadas.clear();
+            segundoEstatus = '';
+            
+            tipoPedidoActual = 'SL';
+            solicitudSeleccionada = 'FE Tiempo';
+            estatusSeleccionado = 'INCO';
+            
+            actualizarOpcionesPorTipo();
+            
+            document.querySelectorAll('#tipoContainer .card').forEach(c => {
+                c.classList.remove('selected');
+                if (c.textContent === 'SL') c.classList.add('selected');
+            });
+            
+            mostrarMensaje('Todo reiniciado', 'success');
+        }
+
+        function mostrarMensaje(texto, tipo) {
+            const mensaje = document.getElementById('mensaje');
+            mensaje.textContent = texto;
+            mensaje.className = `mensaje ${tipo}`;
+            setTimeout(() => {
+                mensaje.textContent = '';
+                mensaje.className = 'mensaje';
+            }, 3000);
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('editModal');
+            if (event.target === modal) {
+                cerrarModal();
+            }
+        }
+
+        // ========== FUNCIONES DE CONTROL DE VISUALIZACIÓN ==========
+        function cambiarAlturaBotones() {
+            const altura = document.getElementById('alturaBotones').value;
+            const grid = document.querySelector('.quick-buttons-grid');
+            if (grid) {
+                grid.style.maxHeight = altura + 'px';
+                mostrarMensaje(`Altura cambiada a ${altura}px`, 'success');
+            }
+        }
+
+        function cambiarColumnasBotones() {
+            const columnas = document.getElementById('columnasBotones').value;
+            const grid = document.querySelector('.quick-buttons-grid');
+            if (grid) {
+                grid.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
+                mostrarMensaje(`Columnas cambiadas a ${columnas}`, 'success');
+            }
+        }
+
+        function refrescarBotones() {
+            if (!quickButtons || quickButtons.length === 0) {
+                quickButtons = crearBotonesPorDefecto();
+            }
+            inicializarBotonesRapidos();
+            mostrarMensaje('Botones refrescados', 'success');
+        }
+
+        function verificarBotonesGuardados() {
+            const guardados = localStorage.getItem('quickButtons');
+            if (guardados) {
+                console.log('📦 Botones en localStorage:', JSON.parse(guardados));
+                alert(`Hay ${JSON.parse(guardados).length} botones guardados`);
+            } else {
+                alert('No hay botones guardados');
+            }
+        }
+
+        function restablecerBotonesPorDefecto() {
+            if (confirm('¿Seguro? Perderás todos los cambios personalizados')) {
+                quickButtons = crearBotonesPorDefecto();
+                guardarConfiguracionBotones();
+                inicializarBotonesRapidos();
+                mostrarMensaje('Botones restablecidos a valores por defecto', 'success');
+            }
+        }
+    </script>
+</body>
+</html>
