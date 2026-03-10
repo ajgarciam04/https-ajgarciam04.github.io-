@@ -1494,7 +1494,8 @@
                 }
 
                 lineas.push('Piezas: ');
-                lineas.push('Motivo de solicitud: ');
+                lineas.push('Resurtido o Devolución:  ');
+                lineas.push('Motivo de la solicitud: ');
                 lineas.push('Teléfono: ');
                 lineas.push('Domicilio de recolección: ');
 
@@ -1520,7 +1521,10 @@
                 }
 
                 lineas.push('Piezas: ');
-                lineas.push('Motivo de solicitud: ');
+                lineas.push('Cambio o devolución: ');
+                lineas.push('Inventario SAP:');
+                lineas.push('Motivo de solicitud (Ej. Mercancía Equivocada, Incompleta, Dañada): Entrega no reconocida (ENR)');
+                lineas.push('Describe el motivo del inconveniente (Ej. ¿Qué daño es?, si es equivocado ¿Que recibió?, si es incompleto ¿Qué parte o num. de piezas le faltaron): Cliente se comunica para indicar que no recibió su pedido, por lo que se solicita apoyo con la investigación.');
                 lineas.push('Teléfono: ');
                 lineas.push('Domicilio: ');
                 
@@ -1532,7 +1536,36 @@
                 });
                 
                 return;
-            }
+            } if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' ) && 
+                solicitudSeleccionada === 'Resurtido' && 
+                (estatusSeleccionado === 'ETOT' || estatusSeleccionado === 'ENTREGADO')) {
+                
+                const lineas = [];
+                lineas.push(`Número de pedido: ${pedido}`);
+
+                if (skusProcesados.length > 0) {
+                    lineas.push(`Sku: ${skusProcesados.join(', ')}`);
+                } else {
+                    lineas.push('Sku: ');
+                }
+
+                lineas.push('Piezas: ');
+                lineas.push('Cambio o devolución: ');
+                lineas.push('Inventario SAP:');
+                lineas.push('Motivo de solicitud (Ej. Mercancía Equivocada, Incompleta, Dañada): ');
+                lineas.push('Describe el motivo del inconveniente (Ej. ¿Qué daño es?, si es equivocado ¿Que recibió?, si es incompleto ¿Qué parte o num. de piezas le faltaron): ');
+                lineas.push('Teléfono: ');
+                lineas.push('Domicilio: ');
+                
+                const reporte = lineas.join('\n');
+                navigator.clipboard.writeText(reporte).then(() => {
+                    mostrarMensaje('¡Reporte de ENR copiado!', 'success');
+                }).catch(err => {
+                    mostrarMensaje('Error al copiar: ' + err, 'error');
+                });
+                
+                return;
+            } 
             
             let textoCamdom = '';
             if (solicitudSeleccionada === 'CamDom') {
