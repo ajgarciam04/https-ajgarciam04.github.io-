@@ -513,8 +513,13 @@
                 <div class="flex-row">
                     <label>ID:</label>
                     <input type="text" id="idBusqueda" class="form-control" style="width: 120px;">
-                    <button class="btn btn-info" style="padding: 4px 8px; font-size: 11px;" onclick="cargarBaseDatos()">📂 Cargar BD</button>
+                    <button class="btn btn-info" style="padding: 4px 8px; font-size: 11px;" onclick="cargarTodasLasBases()">📂 Cargar BD</button>
                 </div>
+                <span id="contadorBD" style="font-size: 11px; color: #666; background: #fff; padding: 4px 8px; border-radius: 4px;">
+                    R:0 C:0 X:0 D:0
+                </span>
+            </div>
+        </div>
 
                 <div class="checkbox-group">
                     <div class="checkbox-item">
@@ -572,6 +577,14 @@
         const CANTIDAD_BOTONES = 30;
         let quickButtons = [];
 
+        // ===== BASE DE DATOS DE CORREOS =====
+        let baseDatosCorreos = {
+            'recepcion': [],
+            'cec': [], // CORREGIDO: estaba 'cyc'
+            'xd': [],
+            'directorio': []
+        };
+
         // Función para crear botones por defecto
         function crearBotonesPorDefecto() {
             const nuevosBotones = [];
@@ -588,19 +601,55 @@
         quickButtons = crearBotonesPorDefecto();
         console.log('✅ Botones creados:', quickButtons.length);
 
-        let datosCorreos = {
-            'Recepción y Envíos': {},
-            'C&C': {},
-            'Auxiliares XD': {},
-            'Directorio Tiendas': {}
-        };
-        let archivoExcelCargado = false;
-        
         const herramientasNormalesList = [
             'SOMS', 'PAO', 'Entrada Única', 'MDA', 'SAP', 'FMS',
             'SimpliRoute', '4PL', 'Página mensajería', 'Siebel', 'CTE',
             'Form Incidencias', 'Correo', 'CSC'
         ];
+
+        // ========== CARGA DE MÚLTIPLES ARCHIVOS JSON ==========
+        async function cargarTodasLasBases() {
+            console.log('📂 Cargando bases de datos...');
+            
+            const archivos = [
+                { nombre: 'recepcion', ruta: 'data/recepcion.json' },
+                { nombre: 'cec', ruta: 'data/cec.json' },
+                { nombre: 'xd', ruta: 'data/xd.json' },
+                { nombre: 'directorio', ruta: 'data/directorio.json' }
+            ];
+            
+            let cargados = 0;
+            
+            for (const archivo of archivos) {
+                try {
+                    const respuesta = await fetch(archivo.ruta);
+                    if (respuesta.ok) {
+                        baseDatosCorreos[archivo.nombre] = await respuesta.json();
+                        console.log(`✅ ${archivo.nombre}: ${baseDatosCorreos[archivo.nombre].length} registros`);
+                        cargados++;
+                    } else {
+                        console.warn(`⚠️ No se pudo cargar ${archivo.ruta}`);
+                    }
+                } catch (error) {
+                    console.error(`❌ Error cargando ${archivo.nombre}:`, error);
+                }
+            }
+            
+            mostrarMensaje(`📊 Bases cargadas: ${cargados}/${archivos.length}`, 'success');
+            actualizarContadorBases();
+        }
+
+        function actualizarContadorBases() {
+            const contadorBD = document.getElementById('contadorBD');
+            if (contadorBD) {
+                contadorBD.innerHTML = `
+                    R:${baseDatosCorreos.recepcion.length} 
+                    C:${baseDatosCorreos.cec.length} 
+                    X:${baseDatosCorreos.xd.length} 
+                    D:${baseDatosCorreos.directorio.length}
+                `;
+            }
+        }
 
         // ========== INICIALIZACIÓN ==========
         document.addEventListener('DOMContentLoaded', function() {
@@ -612,6 +661,7 @@
             inicializarHerramientasNormales();
             
             cargarConfiguracionBotones();
+            cargarTodasLasBases(); // Ahora SÍ existe la función
             
             document.getElementById('segFolCheck').addEventListener('change', function(e) {
                 segFolActivo = e.target.checked;
@@ -1242,27 +1292,7 @@
             }
         }
 
-        // ========== Correo que aún no funciona xDD ==========
-        function cargarBaseDatos() {
-            archivoExcelCargado = true;
-            
-            datosCorreos = {
-                'Recepción y Envíos': {
-                    '123': ['correo1@ejemplo.com', 'correo2@ejemplo.com'],
-                    '456': ['correo3@ejemplo.com']
-                },
-                'C&C': {
-                    '123': ['cc@ejemplo.com']
-                },
-                'Auxiliares XD': {},
-                'Directorio Tiendas': {
-                    '123': ['tienda@ejemplo.com']
-                }
-            };
-            
-            mostrarMensaje('Base de datos cargada correctamente', 'success');
-        }
-
+        // ========== FUNCIÓN COPIAR CORREOS ==========
         function copiarCorreos() {
             const id = document.getElementById('idBusqueda').value.trim();
             if (!id) {
@@ -1271,54 +1301,54 @@
             }
             
             const opciones = [];
-            if (document.getElementById('opcionRye').checked) opciones.push('R y E');
-            if (document.getElementById('opcionCc').checked) opciones.push('C&C');
-            if (document.getElementById('opcionXd').checked) opciones.push('XD');
+            const resultados = [];
+            
+            // Verificar qué opciones están seleccionadas
+            if (document.getElementById('opcionRye').checked) {
+                opciones.push('recepcion');
+                const encontrado = baseDatosCorreos.recepcion.find(item => item.id == id); // Usar == para comparar números y strings
+                if (encontrado) resultados.push(encontrado.correo);
+            }
+            
+            if (document.getElementById('opcionCc').checked) {
+                opciones.push('cec');
+                const encontrado = baseDatosCorreos.cec.find(item => item.id == id);
+                if (encontrado) resultados.push(encontrado.correo);
+            }
+            
+            if (document.getElementById('opcionXd').checked) {
+                opciones.push('xd');
+                const encontrado = baseDatosCorreos.xd.find(item => item.id == id);
+                if (encontrado) resultados.push(encontrado.correo);
+            }
+            
             if (document.getElementById('opcionDirectorio').checked) {
                 if (!confirm('¿Estás seguro de seleccionar el directorio? Estos correos son para uso especial')) {
                     return;
                 }
-                opciones.push('Directorio Tiendas');
+                opciones.push('directorio');
+                const encontrado = baseDatosCorreos.directorio.find(item => item.id == id);
+                if (encontrado) resultados.push(encontrado.correo);
             }
             
             if (opciones.length === 0) {
-                mostrarMensaje('Por favor selecciona al menos una opción', 'error');
+                mostrarMensaje('Selecciona al menos una opción', 'error');
                 return;
             }
             
-            const mapaHojas = {
-                'R y E': 'Recepción y Envíos',
-                'C&C': 'C&C',
-                'XD': 'Auxiliares XD',
-                'Directorio Tiendas': 'Directorio Tiendas'
-            };
-            
-            let resultados = [];
-            
-            opciones.forEach(opcion => {
-                const nombreHoja = mapaHojas[opcion];
-                if (datosCorreos[nombreHoja] && datosCorreos[nombreHoja][id]) {
-                    resultados = resultados.concat(datosCorreos[nombreHoja][id]);
-                }
-            });
-            
-            resultados = [...new Set(resultados)];
-            
-            let textoResultado;
             if (resultados.length > 0) {
-                textoResultado = resultados.join(', ');
+                const textoCorreos = resultados.join(', ');
+                navigator.clipboard.writeText(textoCorreos).then(() => {
+                    mostrarMensaje(`✅ Correos copiados (${resultados.length} encontrados)`, 'success');
+                }).catch(err => {
+                    mostrarMensaje('Error al copiar: ' + err, 'error');
+                });
             } else {
-                textoResultado = 'No se encontraron correos para el ID especificado en las opciones seleccionadas.';
+                mostrarMensaje('❌ ID no encontrado en las opciones seleccionadas', 'error');
             }
-            
-            navigator.clipboard.writeText(textoResultado).then(() => {
-                mostrarMensaje('¡Correos copiados al portapapeles!', 'success');
-            }).catch(err => {
-                mostrarMensaje('Error al copiar: ' + err, 'error');
-            });
         }
 
-        // ========== Generador de reportes  ==========
+        // ========== GENERADOR DE REPORTES ==========
         function generarReporte() {
             const pedido = document.getElementById('pedido').value.trim();
             if (!pedido) {
@@ -1478,7 +1508,10 @@
                         textoIndicacion = 'Te ofrezco una sincera disculpa por el inconveniente, revisando el estatus que presenta tu pedido, no nos permite realizar la cancelación de manera inmediata, sin embargo en este momento escalé tu reporte con el área correspondiente para solicitar detener la entrega, por favor comunícate nuevamente por este canal en un lapso de 7 a 10 días hábiles para validar el avance.';
                     }
                 } 
-            } if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' || tipoPedidoActual === 'MKP') && 
+            } 
+            
+            // Formatos especiales
+            if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' || tipoPedidoActual === 'MKP') && 
                 solicitudSeleccionada === 'Recogido' && 
                 (estatusSeleccionado === 'ETOT' || estatusSeleccionado === 'ENTREGADO')) {
                 
@@ -1507,7 +1540,9 @@
                 });
                 
                 return;
-            } if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' ) && 
+            } 
+            
+            if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' ) && 
                 solicitudSeleccionada === 'ENR' && 
                 (estatusSeleccionado === 'ETOT' || estatusSeleccionado === 'ENTREGADO')) {
                 
@@ -1536,7 +1571,9 @@
                 });
                 
                 return;
-            } if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' ) && 
+            } 
+            
+            if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' ) && 
                 solicitudSeleccionada === 'Resurtido' && 
                 (estatusSeleccionado === 'ETOT' || estatusSeleccionado === 'ENTREGADO')) {
                 
@@ -1554,12 +1591,11 @@
                 lineas.push('Inventario SAP:');
                 lineas.push('Motivo de solicitud (Ej. Mercancía Equivocada, Incompleta, Dañada): ');
                 lineas.push('Describe el motivo del inconveniente (Ej. ¿Qué daño es?, si es equivocado ¿Que recibió?, si es incompleto ¿Qué parte o num. de piezas le faltaron): ');
-                lineas.push('Teléfono: ');
                 lineas.push('Domicilio: ');
                 
                 const reporte = lineas.join('\n');
                 navigator.clipboard.writeText(reporte).then(() => {
-                    mostrarMensaje('¡Reporte de ENR copiado!', 'success');
+                    mostrarMensaje('¡Reporte de Resurtido copiado!', 'success');
                 }).catch(err => {
                     mostrarMensaje('Error al copiar: ' + err, 'error');
                 });
