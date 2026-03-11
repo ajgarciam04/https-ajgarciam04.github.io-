@@ -1066,10 +1066,10 @@
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'SAP']);
                     }
                 } else if (solicitud === 'Recogido') {
-                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC', 'VCTE'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
-                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
-                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería', 'Correo']);
+                    } else if (['ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
                     } else if (estatus === 'RBOD') {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Correo']);
                     } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
@@ -1494,8 +1494,8 @@
                 }
 
                 lineas.push('Piezas: ');
-                lineas.push('Resurtido o Devolución:  ');
                 lineas.push('Motivo de la solicitud: ');
+                lineas.push('¿Instalado?  ');
                 lineas.push('Teléfono: ');
                 lineas.push('Domicilio de recolección: ');
 
