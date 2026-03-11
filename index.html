@@ -151,7 +151,42 @@
             background: #1976D2;
         }
 
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
         /* ===== BOTONES RÁPIDOS ===== */
+        .quick-buttons-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .quick-buttons-header .form-label {
+            margin: 0;
+        }
+
+        .config-button {
+            background: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 4px 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .config-button:hover {
+            background: #d0d0d0;
+            transform: scale(1.05);
+        }
+
         .quick-buttons-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -199,7 +234,7 @@
 
         .edit-button {
             width: 32px;
-            height: 20px;
+            height: 28px;
             background: #ffd700;
             border: 1px solid #cca300;
             border-radius: 6px;
@@ -238,22 +273,29 @@
             background: #0056b3;
         }
 
-        /* Controles de tamaño */
+        /* Controles de tamaño (ocultos por defecto) */
         .controles-botones {
             background: #ffffff;
             padding: 10px;
             border-radius: 8px;
             margin-bottom: 15px;
             border: 1px solid #ddd;
+            display: none;
         }
 
-        .controles-botones select {
+        .controles-botones.show {
+            display: block;
+        }
+
+        .controles-botones select,
+        .controles-botones input {
             padding: 6px;
             border: 1px solid #ced4da;
             border-radius: 4px;
             font-size: 12px;
         }
 
+        /* Sección de correos */
         .correos-section {
             margin-top: 20px;
             border: 1px solid #ccc;
@@ -262,16 +304,28 @@
             background: #f8f8f8;
         }
 
-        .correos-section h3 {
+        .correos-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
+        }
+
+        .correos-header h3 {
+            margin: 0;
             font-size: 16px;
+        }
+
+        .correos-controls {
+            display: flex;
+            gap: 5px;
         }
 
         .checkbox-group {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 5px;
-            margin: 10px 0;
+            margin: 15px 0;
         }
 
         .checkbox-item {
@@ -283,6 +337,12 @@
         .checkbox-item input[type="checkbox"] {
             width: 16px;
             height: 16px;
+        }
+
+        .btn-copiar-correos {
+            width: 100%;
+            padding: 6px 12px;
+            font-size: 12px;
         }
 
         .mensaje {
@@ -384,8 +444,17 @@
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 400px;
+            width: 500px;
             border-radius: 8px;
+        }
+
+        .color-picker {
+            width: 100%;
+            height: 40px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
         .modal-buttons {
@@ -475,16 +544,18 @@
         </div>
 
         <div class="right-panel">
-            <!-- Controles de visualización -->
-            <div class="controles-botones">
-                <div class="flex-row" style="justify-content: space-between; margin-bottom: 10px;">
-                    <div class="form-label" style="margin: 0;">📋 Textos rápidos</div>
-                    <div>
-                        <span id="botonesVisibles" style="font-size: 12px; color: #0078D7; font-weight: bold;">0/30 botones</span>
-                    </div>
-                </div>
-                
+            <!-- Encabezado con tuerca de configuración -->
+            <div class="quick-buttons-header">
+                <div class="form-label">📋 Textos rápidos</div>
                 <div class="flex-row" style="gap: 5px;">
+                    <span id="botonesVisibles" style="font-size: 12px; color: #0078D7; font-weight: bold;">0/30 botones</span>
+                    <button class="config-button" onclick="toggleConfigBotones()" title="Configurar botones">⚙️</button>
+                </div>
+            </div>
+
+            <!-- Controles de visualización (ocultos por defecto) -->
+            <div id="configBotonesPanel" class="controles-botones">
+                <div class="flex-row" style="gap: 5px; margin-bottom: 10px;">
                     <select id="alturaBotones" class="form-control" style="width: 100px;" onchange="cambiarAlturaBotones()">
                         <option value="300">Pequeño</option>
                         <option value="500" selected>Mediano</option>
@@ -493,13 +564,20 @@
                     </select>
                     
                     <select id="columnasBotones" class="form-control" style="width: 100px;" onchange="cambiarColumnasBotones()">
-                        <option value="2">2 columnas</option>
-                        <option value="3">3 columnas</option>
-                        <option value="4">4 columnas</option>
+                        <option value="2">2 cols</option>
+                        <option value="3">3 cols</option>
+                        <option value="4">4 cols</option>
                     </select>
                     
-                    <button class="btn btn-info" style="padding: 6px 10px; font-size: 12px;" onclick="refrescarBotones()">
-                        🔄 Refrescar
+                    <input type="number" id="cantidadBotones" class="form-control" style="width: 80px;" value="30" min="1" max="100" onchange="cambiarCantidadBotones()">
+                    
+                    <button class="btn btn-info" style="padding: 6px 10px; font-size: 12px;" onclick="refrescarBotones()" title="Refrescar">
+                        🔄
+                    </button>
+                    
+                    <!-- MEJORADO: Botón para recuperar botones eliminados -->
+                    <button class="btn btn-success" style="padding: 6px 10px; font-size: 12px;" onclick="recuperarBotonesEliminados()" title="Recuperar botones eliminados">
+                        ↩️
                     </button>
                 </div>
             </div>
@@ -507,36 +585,43 @@
             <!-- Contenedor de botones rápidos -->
             <div class="quick-buttons-grid" id="quickButtons"></div>
 
+            <!-- Sección de correos -->
             <div class="correos-section">
-                <h3>Escalaciones por correo</h3>
-                
-                <div class="flex-row">
-                    <label>ID:</label>
-                    <input type="text" id="idBusqueda" class="form-control" style="width: 120px;">
-                    <button class="btn btn-info" style="padding: 4px 8px; font-size: 11px;" onclick="cargarTodasLasBases()">📂 Cargar BD</button>
+                <div class="correos-header">
+                    <h3>📧 Escalaciones por correo</h3>
+                    <div class="correos-controls">
+                        <button class="btn btn-info" style="padding: 4px 8px; font-size: 11px;" onclick="cargarTodasLasBases()">
+                            📂 Cargar BD
+                        </button>
+                        <span id="contadorBD" style="font-size: 11px; color: #666; background: #fff; padding: 4px 8px; border-radius: 4px;">
+                            R:0 C:0 X:0 D:0
+                        </span>
+                    </div>
                 </div>
-                <span id="contadorBD" style="font-size: 11px; color: #666; background: #fff; padding: 4px 8px; border-radius: 4px;">
-                    R:0 C:0 X:0 D:0
-                </span>
-            </div>
-        </div>
+                
+                <div class="flex-row" style="margin-bottom: 10px;">
+                    <label style="min-width: 30px;">ID:</label>
+                    <input type="text" id="idBusqueda" class="form-control" placeholder="Ingresa el ID" style="flex: 1;">
+                </div>
 
                 <div class="checkbox-group">
                     <div class="checkbox-item">
-                        <input type="checkbox" id="opcionRye"> <label for="opcionRye">R y E</label>
+                        <input type="checkbox" id="opcionRye"> <label for="opcionRye">📦 R y E</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="opcionCc"> <label for="opcionCc">C&C</label>
+                        <input type="checkbox" id="opcionCc"> <label for="opcionCc">🔄 C&C</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="opcionXd"> <label for="opcionXd">XD</label>
+                        <input type="checkbox" id="opcionXd"> <label for="opcionXd">❌ XD</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="opcionDirectorio"> <label for="opcionDirectorio" style="color: red;">Directorio Tiendas</label>
+                        <input type="checkbox" id="opcionDirectorio"> <label for="opcionDirectorio" style="color: red;">🏬 Directorio Tiendas</label>
                     </div>
                 </div>
 
-                <button class="btn btn-warning" style="width: 100%;" onclick="copiarCorreos()">Copiar correos</button>
+                <button class="btn btn-warning btn-copiar-correos" onclick="copiarCorreos()">
+                    📋 Copiar correos seleccionados
+                </button>
             </div>
         </div>
     </div>
@@ -550,11 +635,16 @@
             </div>
             <div class="form-group">
                 <label>Texto a copiar:</label>
-                <input type="text" id="editTextoBoton" class="form-control">
+                <textarea id="editTextoBoton" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Color del botón:</label>
+                <input type="color" id="editColorBoton" class="color-picker" value="#f8f9fa">
             </div>
             <div class="modal-buttons">
-                <button class="btn btn-primary" onclick="guardarEdicionBoton()">Guardar</button>
-                <button class="btn btn-danger" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn btn-success" onclick="guardarEdicionBoton()">💾 Guardar</button>
+                <button class="btn btn-danger" onclick="cerrarModal()">✖ Cancelar</button>
+                <button class="btn btn-warning" onclick="eliminarBoton()" style="background: #dc3545; color: white;">🗑️ Eliminar</button>
             </div>
         </div>
     </div>
@@ -574,30 +664,35 @@
         let ccActivo = false;
 
         // ===== CONFIGURACIÓN DE BOTONES =====
-        const CANTIDAD_BOTONES = 30;
+        let CANTIDAD_BOTONES = 30;
         let quickButtons = [];
+        
+        // MEJORADO: Backup para botones eliminados
+        window.quickButtonsBackup = {};
 
         // ===== BASE DE DATOS DE CORREOS =====
         let baseDatosCorreos = {
             'recepcion': [],
-            'cec': [], // CORREGIDO: estaba 'cyc'
+            'cec': [],
             'xd': [],
             'directorio': []
         };
 
-        // Función para crear botones por defecto
-        function crearBotonesPorDefecto() {
+        // MEJORADO: Función para crear botones por defecto (solo para inicialización)
+        function crearBotonesPorDefecto(cantidad = CANTIDAD_BOTONES) {
             const nuevosBotones = [];
-            for (let i = 1; i <= CANTIDAD_BOTONES; i++) {
+            for (let i = 1; i <= cantidad; i++) {
                 nuevosBotones.push({
                     id: i,
                     nombre: `Botón ${i}`,
-                    texto: `Texto ${i}`
+                    texto: `Texto ${i}`,
+                    color: '#f8f9fa'
                 });
             }
             return nuevosBotones;
         }
 
+        // Inicializar con botones por defecto (se sobrescribirá al cargar configuración)
         quickButtons = crearBotonesPorDefecto();
         console.log('✅ Botones creados:', quickButtons.length);
 
@@ -606,6 +701,96 @@
             'SimpliRoute', '4PL', 'Página mensajería', 'Siebel', 'CTE',
             'Form Incidencias', 'Correo', 'CSC'
         ];
+
+        // ========== FUNCIONES DE CONFIGURACIÓN ==========
+        function toggleConfigBotones() {
+            const panel = document.getElementById('configBotonesPanel');
+            panel.classList.toggle('show');
+        }
+
+        // MEJORADO: Cambiar cantidad de botones SIN perder datos
+        function cambiarCantidadBotones() {
+            const nuevaCantidad = parseInt(document.getElementById('cantidadBotones').value);
+            if (nuevaCantidad < 1 || nuevaCantidad > 100) {
+                mostrarMensaje('La cantidad debe estar entre 1 y 100', 'error');
+                return;
+            }
+            
+            const cantidadActual = quickButtons.length;
+            
+            if (nuevaCantidad > cantidadActual) {
+                // AUMENTAR: Agregar nuevos botones sin modificar los existentes
+                for (let i = cantidadActual + 1; i <= nuevaCantidad; i++) {
+                    // Verificar si existe en backup primero
+                    if (window.quickButtonsBackup && window.quickButtonsBackup[i]) {
+                        quickButtons.push({ ...window.quickButtonsBackup[i] });
+                        delete window.quickButtonsBackup[i];
+                    } else {
+                        quickButtons.push({
+                            id: i,
+                            nombre: `Botón ${i}`,
+                            texto: `Texto ${i}`,
+                            color: '#f8f9fa'
+                        });
+                    }
+                }
+                mostrarMensaje(`✅ Se agregaron ${nuevaCantidad - cantidadActual} botones`, 'success');
+                
+            } else if (nuevaCantidad < cantidadActual) {
+                // DISMINUIR: Mover a backup en lugar de eliminar
+                for (let i = nuevaCantidad + 1; i <= cantidadActual; i++) {
+                    const boton = quickButtons.find(b => b.id === i);
+                    if (boton) {
+                        window.quickButtonsBackup[i] = { ...boton };
+                    }
+                }
+                
+                quickButtons = quickButtons.slice(0, nuevaCantidad);
+                mostrarMensaje(`📝 Se redujo a ${nuevaCantidad} botones (guardados en backup)`, 'success');
+            }
+            
+            // Ordenar por ID
+            quickButtons.sort((a, b) => a.id - b.id);
+            
+            // Actualizar variable global
+            CANTIDAD_BOTONES = quickButtons.length;
+            document.getElementById('cantidadBotones').value = CANTIDAD_BOTONES;
+            
+            guardarConfiguracionBotones();
+            inicializarBotonesRapidos();
+        }
+
+        // MEJORADO: Recuperar todos los botones del backup
+        function recuperarBotonesEliminados() {
+            if (!window.quickButtonsBackup || Object.keys(window.quickButtonsBackup).length === 0) {
+                mostrarMensaje('No hay botones en backup para recuperar', 'error');
+                return;
+            }
+            
+            const idsBackup = Object.keys(window.quickButtonsBackup).map(Number);
+            const cantidadRecuperados = idsBackup.length;
+            
+            // Agregar botones del backup que no existan
+            idsBackup.sort((a, b) => a - b).forEach(id => {
+                if (!quickButtons.find(b => b.id === id)) {
+                    quickButtons.push(window.quickButtonsBackup[id]);
+                }
+            });
+            
+            // Ordenar por ID
+            quickButtons.sort((a, b) => a.id - b.id);
+            
+            // Limpiar backup
+            window.quickButtonsBackup = {};
+            
+            // Actualizar cantidad
+            CANTIDAD_BOTONES = quickButtons.length;
+            document.getElementById('cantidadBotones').value = CANTIDAD_BOTONES;
+            
+            guardarConfiguracionBotones();
+            inicializarBotonesRapidos();
+            mostrarMensaje(`✅ Recuperados ${cantidadRecuperados} botones`, 'success');
+        }
 
         // ========== CARGA DE MÚLTIPLES ARCHIVOS JSON ==========
         async function cargarTodasLasBases() {
@@ -661,7 +846,7 @@
             inicializarHerramientasNormales();
             
             cargarConfiguracionBotones();
-            cargarTodasLasBases(); // Ahora SÍ existe la función
+            cargarTodasLasBases();
             
             document.getElementById('segFolCheck').addEventListener('change', function(e) {
                 segFolActivo = e.target.checked;
@@ -819,6 +1004,7 @@
                     const button = document.createElement('button');
                     button.className = 'quick-button';
                     button.textContent = btn.nombre || `Botón ${btn.id}`;
+                    button.style.backgroundColor = btn.color || '#f8f9fa';
                     button.setAttribute('data-id', btn.id);
                     button.setAttribute('data-index', index);
                     button.onclick = (e) => {
@@ -853,7 +1039,7 @@
             const totalBotones = quickButtons.length;
             const botonesVisibles = document.getElementById('botonesVisibles');
             if (botonesVisibles) {
-                botonesVisibles.textContent = `${totalBotones}/${CANTIDAD_BOTONES} botones`;
+                botonesVisibles.textContent = `${totalBotones}/${totalBotones} botones`;
             }
         }
 
@@ -1230,6 +1416,7 @@
             
             document.getElementById('editNombreBoton').value = boton.nombre;
             document.getElementById('editTextoBoton').value = boton.texto;
+            document.getElementById('editColorBoton').value = boton.color || '#f8f9fa';
             document.getElementById('editModal').style.display = 'block';
             document.getElementById('editModal').dataset.botonId = id;
             document.getElementById('modalTitle').textContent = `Editar Botón ${id}`;
@@ -1239,16 +1426,51 @@
             const id = parseInt(document.getElementById('editModal').dataset.botonId);
             const nombre = document.getElementById('editNombreBoton').value.trim() || `Botón ${id}`;
             const texto = document.getElementById('editTextoBoton').value.trim() || `Texto ${id}`;
+            const color = document.getElementById('editColorBoton').value;
             
             const boton = quickButtons.find(b => b.id === id);
             if (boton) {
                 boton.nombre = nombre;
                 boton.texto = texto;
+                boton.color = color;
                 guardarConfiguracionBotones();
                 inicializarBotonesRapidos();
                 mostrarMensaje(`✅ Botón "${nombre}" guardado permanentemente`, 'success');
             }
             cerrarModal();
+        }
+
+        // MEJORADO: Eliminar botón moviéndolo a backup
+        function eliminarBoton() {
+            const id = parseInt(document.getElementById('editModal').dataset.botonId);
+            if (confirm('¿Estás seguro de eliminar este botón? (Se guardará en backup)')) {
+                const boton = quickButtons.find(b => b.id === id);
+                if (boton) {
+                    window.quickButtonsBackup[id] = { ...boton };
+                }
+                quickButtons = quickButtons.filter(b => b.id !== id);
+                
+                // Reasignar IDs para mantener consecutivos
+                quickButtons = quickButtons.map((btn, index) => {
+                    return { ...btn, id: index + 1 };
+                });
+                
+                // Actualizar IDs en backup
+                const nuevoBackup = {};
+                Object.keys(window.quickButtonsBackup).forEach(key => {
+                    const btn = window.quickButtonsBackup[key];
+                    nuevoBackup[parseInt(key)] = btn;
+                });
+                window.quickButtonsBackup = nuevoBackup;
+                
+                CANTIDAD_BOTONES = quickButtons.length;
+                document.getElementById('cantidadBotones').value = CANTIDAD_BOTONES;
+                
+                guardarConfiguracionBotones();
+                inicializarBotonesRapidos();
+                mostrarMensaje('✅ Botón movido a backup', 'success');
+                cerrarModal();
+            }
         }
 
         function cerrarModal() {
@@ -1259,12 +1481,21 @@
         function guardarConfiguracionBotones() {
             try {
                 localStorage.setItem('quickButtons', JSON.stringify(quickButtons));
+                
+                // MEJORADO: Guardar backup
+                if (window.quickButtonsBackup && Object.keys(window.quickButtonsBackup).length > 0) {
+                    localStorage.setItem('quickButtonsBackup', JSON.stringify(window.quickButtonsBackup));
+                } else {
+                    localStorage.removeItem('quickButtonsBackup');
+                }
+                
                 console.log('✅ Botones guardados en localStorage:', quickButtons.length);
             } catch (e) {
                 console.error('Error guardando configuración:', e);
             }
         }
 
+        // MEJORADO: Cargar configuración con backup
         function cargarConfiguracionBotones() {
             try {
                 const saved = localStorage.getItem('quickButtons');
@@ -1272,14 +1503,23 @@
                     const cargados = JSON.parse(saved);
                     if (Array.isArray(cargados) && cargados.length > 0) {
                         quickButtons = cargados;
+                        CANTIDAD_BOTONES = quickButtons.length;
+                        document.getElementById('cantidadBotones').value = CANTIDAD_BOTONES;
                         console.log('✅ Botones cargados de localStorage:', quickButtons.length);
                     } else {
                         console.log('⚠️ No hay botones guardados válidos, usando por defecto');
-                        quickButtons = crearBotonesPorDefecto();
+                        quickButtons = crearBotonesPorDefecto(CANTIDAD_BOTONES);
                     }
                 } else {
                     console.log('📝 Primera vez: creando botones por defecto');
-                    quickButtons = crearBotonesPorDefecto();
+                    quickButtons = crearBotonesPorDefecto(CANTIDAD_BOTONES);
+                }
+                
+                // Cargar backup
+                const backupSaved = localStorage.getItem('quickButtonsBackup');
+                if (backupSaved) {
+                    window.quickButtonsBackup = JSON.parse(backupSaved);
+                    console.log('✅ Backup cargado:', Object.keys(window.quickButtonsBackup).length, 'botones en reserva');
                 }
                 
                 actualizarContadorBotones();
@@ -1287,7 +1527,7 @@
                 
             } catch (e) {
                 console.error('Error cargando configuración:', e);
-                quickButtons = crearBotonesPorDefecto();
+                quickButtons = crearBotonesPorDefecto(CANTIDAD_BOTONES);
                 inicializarBotonesRapidos();
             }
         }
@@ -1303,10 +1543,9 @@
             const opciones = [];
             const resultados = [];
             
-            // Verificar qué opciones están seleccionadas
             if (document.getElementById('opcionRye').checked) {
                 opciones.push('recepcion');
-                const encontrado = baseDatosCorreos.recepcion.find(item => item.id == id); // Usar == para comparar números y strings
+                const encontrado = baseDatosCorreos.recepcion.find(item => item.id == id);
                 if (encontrado) resultados.push(encontrado.correo);
             }
             
@@ -1728,7 +1967,7 @@
             const altura = document.getElementById('alturaBotones').value;
             const grid = document.querySelector('.quick-buttons-grid');
             if (grid) {
-                grid.style.maxHeight = altura + 'px';
+                grid.style.height = altura + 'px';
                 mostrarMensaje(`Altura cambiada a ${altura}px`, 'success');
             }
         }
@@ -1744,7 +1983,7 @@
 
         function refrescarBotones() {
             if (!quickButtons || quickButtons.length === 0) {
-                quickButtons = crearBotonesPorDefecto();
+                quickButtons = crearBotonesPorDefecto(CANTIDAD_BOTONES);
             }
             inicializarBotonesRapidos();
             mostrarMensaje('Botones refrescados', 'success');
@@ -1762,7 +2001,8 @@
 
         function restablecerBotonesPorDefecto() {
             if (confirm('¿Seguro? Perderás todos los cambios personalizados')) {
-                quickButtons = crearBotonesPorDefecto();
+                quickButtons = crearBotonesPorDefecto(CANTIDAD_BOTONES);
+                window.quickButtonsBackup = {};
                 guardarConfiguracionBotones();
                 inicializarBotonesRapidos();
                 mostrarMensaje('Botones restablecidos a valores por defecto', 'success');
