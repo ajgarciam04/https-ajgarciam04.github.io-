@@ -1546,19 +1546,38 @@
             if (document.getElementById('opcionRye').checked) {
                 opciones.push('recepcion');
                 const encontrado = baseDatosCorreos.recepcion.find(item => item.id == id);
-                if (encontrado) resultados.push(encontrado.correo);
+                if (encontrado) {
+                    // ✅ CORREGIDO: Verificar si es array o string
+                    if (Array.isArray(encontrado.correos)) {
+                        resultados.push(...encontrado.correos); // Spread operator para array
+                    } else if (encontrado.correo) {
+                        resultados.push(encontrado.correo); // Para formato antiguo
+                    }
+                }
             }
             
             if (document.getElementById('opcionCc').checked) {
                 opciones.push('cec');
                 const encontrado = baseDatosCorreos.cec.find(item => item.id == id);
-                if (encontrado) resultados.push(encontrado.correo);
+                if (encontrado) {
+                    if (Array.isArray(encontrado.correos)) {
+                        resultados.push(...encontrado.correos);
+                    } else if (encontrado.correo) {
+                        resultados.push(encontrado.correo);
+                    }
+                }
             }
             
             if (document.getElementById('opcionXd').checked) {
                 opciones.push('xd');
                 const encontrado = baseDatosCorreos.xd.find(item => item.id == id);
-                if (encontrado) resultados.push(encontrado.correo);
+                if (encontrado) {
+                    if (Array.isArray(encontrado.correos)) {
+                        resultados.push(...encontrado.correos);
+                    } else if (encontrado.correo) {
+                        resultados.push(encontrado.correo);
+                    }
+                }
             }
             
             if (document.getElementById('opcionDirectorio').checked) {
@@ -1567,7 +1586,13 @@
                 }
                 opciones.push('directorio');
                 const encontrado = baseDatosCorreos.directorio.find(item => item.id == id);
-                if (encontrado) resultados.push(encontrado.correo);
+                if (encontrado) {
+                    if (Array.isArray(encontrado.correos)) {
+                        resultados.push(...encontrado.correos);
+                    } else if (encontrado.correo) {
+                        resultados.push(encontrado.correo);
+                    }
+                }
             }
             
             if (opciones.length === 0) {
@@ -1576,9 +1601,12 @@
             }
             
             if (resultados.length > 0) {
-                const textoCorreos = resultados.join(', ');
+                // Eliminar duplicados
+                const resultadosUnicos = [...new Set(resultados)];
+                const textoCorreos = resultadosUnicos.join(', ');
+                
                 navigator.clipboard.writeText(textoCorreos).then(() => {
-                    mostrarMensaje(`✅ Correos copiados (${resultados.length} encontrados)`, 'success');
+                    mostrarMensaje(`✅ ${resultadosUnicos.length} correos copiados`, 'success');
                 }).catch(err => {
                     mostrarMensaje('Error al copiar: ' + err, 'error');
                 });
