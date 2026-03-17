@@ -25,7 +25,7 @@
         }
 
         .left-panel {
-            flex: 2;
+            
             background: #f0f0f0;
             padding: 20px;
             border-radius: 8px;
@@ -39,10 +39,11 @@
         }
 
         .card-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
             flex-wrap: wrap;
-            gap: 5px;
-            margin: 10px 0;
+            gap: 3px;
+            margin-top: 3px 0;
         }
 
         .card {
@@ -52,7 +53,7 @@
             padding: 8px 12px;
             cursor: pointer;
             user-select: none;
-            font-size: 13px;
+            font-size: 10px;
             transition: all 0.2s;
             min-width: 80px;
             text-align: center;
@@ -273,7 +274,7 @@
             background: #0056b3;
         }
 
-        /* Controles de tamaño (ocultos por defecto) */
+        /* Controles de tamaño  */
         .controles-botones {
             background: #ffffff;
             padding: 10px;
@@ -520,13 +521,18 @@
             <div class="form-group">
                 <div class="form-label">Herramientas:</div>
                 <div class="herramientas-grid" id="herramientasContainer"></div>
-                <div class="flex-row mt-10">
-                    <label>Formulario:</label>
-                    <input type="text" id="formularioPersonalizado" class="form-control" style="width: 100px;">
-                </div>
-                <div class="flex-row mt-10">
-                    <label>Otra:</label>
-                    <input type="text" id="otraHerramienta" class="form-control" style="flex: 1;">
+                
+                <!-- 🔥 NUEVO: Formulario y Otra en la misma línea -->
+                <div class="flex-row mt-10" style="gap: 10px; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 5px; flex: 1;">
+                        <label style="min-width: 70px;">Formulario:</label>
+                        <input type="text" id="formularioPersonalizado" class="form-control" placeholder="Ej: INC-001" style="flex: 1;">
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 5px; flex: 1;">
+                        <label style="min-width: 40px;">Otra:</label>
+                        <input type="text" id="otraHerramienta" class="form-control" placeholder="Especificar..." style="flex: 1;">
+                    </div>
                 </div>
             </div>
 
@@ -588,7 +594,7 @@
             <!-- Sección de correos -->
             <div class="correos-section">
                 <div class="correos-header">
-                    <h3>📧 Escalaciones por correo</h3>
+                    <h3>Correos principales 📧</h3>
                     <div class="correos-controls">
                         <button class="btn btn-info" style="padding: 4px 8px; font-size: 11px;" onclick="cargarTodasLasBases()">
                             📂 Cargar BD
@@ -679,9 +685,77 @@
         };
 
         // MEJORADO: Función para crear botones por defecto (solo para inicialización)
+        // ===== VERSIÓN DEMO PARA EXPOSICIÓN =====
+        // REEMPLAZA temporalmente esta función
         function crearBotonesPorDefecto(cantidad = CANTIDAD_BOTONES) {
-            const nuevosBotones = [];
-            for (let i = 1; i <= cantidad; i++) {
+            // Botones predeterminados con info y colores
+            const botonesDemo = [
+                {
+                    id: 1,
+                    nombre: "⚠️ URGENTE",
+                    texto: "Cliente reporta URGENCIA en la entrega. Se requiere atención inmediata.",
+                    color: "#ff4444"  // Rojo
+                },
+                {
+                    id: 2,
+                    nombre: "📞 LLAMAR",
+                    texto: "Cliente solicita llamada de confirmación antes de las 5pm.",
+                    color: "#FF9800"  // Naranja
+                },
+                {
+                    id: 3,
+                    nombre: "✅ VERIFICADO",
+                    texto: "Datos verificados correctamente. Procede con la gestión.",
+                    color: "#4CAF50"  // Verde
+                },
+                {
+                    id: 4,
+                    nombre: "⚠️ REVISAR",
+                    texto: "Revisar dirección de entrega, posible inconsistencia.",
+                    color: "#ff4444"  // Rojo
+                },
+                {
+                    id: 5,
+                    nombre: "📦 DEVOLUCIÓN",
+                    texto: "Cliente solicita devolución. Motivo: producto dañado.",
+                    color: "#2196F3"  // Azul
+                },
+                {
+                    id: 6,
+                    nombre: "💰 REEMBOLSO",
+                    texto: "Procesar reembolso a tarjeta terminación 1234.",
+                    color: "#9C27B0"  // Morado
+                },
+                {
+                    id: 7,
+                    nombre: "⏰ ESPERA",
+                    texto: "Cliente en espera. Tiempo estimado: 3 minutos.",
+                    color: "#FF9800"  // Naranja
+                },
+                {
+                    id: 8,
+                    nombre: "📝 NOTA",
+                    texto: "Cliente solicita nota adicional en el pedido.",
+                    color: "#607D8B"  // Gris azulado
+                },
+                {
+                    id: 9,
+                    nombre: "🏠 DOMICILIO",
+                    texto: "Confirmar cambio de domicilio a: Calle Principal #123.",
+                    color: "#2196F3"  // Azul
+                },
+                {
+                    id: 10,
+                    nombre: "⭐ VIP",
+                    texto: "Cliente VIP. Prioridad en la atención.",
+                    color: "#FFD700"  // Dorado
+                }
+            ];
+            
+            // Completar hasta la cantidad deseada con botones genéricos
+            const nuevosBotones = [...botonesDemo];
+            
+            for (let i = botonesDemo.length + 1; i <= cantidad; i++) {
                 nuevosBotones.push({
                     id: i,
                     nombre: `Botón ${i}`,
@@ -689,6 +763,7 @@
                     color: '#f8f9fa'
                 });
             }
+            
             return nuevosBotones;
         }
 
@@ -708,7 +783,7 @@
             panel.classList.toggle('show');
         }
 
-        // MEJORADO: Cambiar cantidad de botones SIN perder datos
+        // Cambiar cantidad de botones
         function cambiarCantidadBotones() {
             const nuevaCantidad = parseInt(document.getElementById('cantidadBotones').value);
             if (nuevaCantidad < 1 || nuevaCantidad > 100) {
@@ -935,8 +1010,8 @@
 
         function inicializarEstatusSLMKP() {
             const estatus = [
-                'INCO', 'CONF', 'VBOD', 'RBOD', 'LIPR', 'EMEN', 'VMEN',
-                'VCTE', 'ETOT', 'CANC', 'VALM/BACR', 'RACR/RALM', 'RALM'
+                'INCO', 'CONF', 'VBOD', 'RBOD', 'VCTE CR', 'ETOT CR', 'LIPR', 'EMEN', 'VMEN',
+                'VCTE Men', 'ETOT Men',  'CANC', 'VALM/BACR', 'RACR/RALM', 'RALM', 'NENT'
             ];
             const container = document.getElementById('estatusContainer');
             container.innerHTML = '';
@@ -1248,12 +1323,10 @@
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
                     } else if (['CONF', 'VALM/BACR', 'RACR/RALM', 'RALM'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
-                    } else if (['VBOD', 'RBOD'].includes(estatus)) {
+                    } else if (['VBOD', 'RBOD', 'VCTE CR', 'ETOT CR'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute']);
-                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                    } else if (['LIPR', 'EMEN', 'VMEN', 'ETOT Men', 'VCTE Men'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería']);
-                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
-                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería']);
                     } else if (estatus === 'CANC') {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP']);
                     }
@@ -1262,31 +1335,29 @@
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
                     } else if (['CONF', 'VBOD', 'LIPR'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
-                    } else if (estatus === 'RBOD') {
+                    } else if (['RBOD', 'VCTE CR', 'ETOT CR'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Correo']);
                     } else if (['VCTE', 'VALM/BACR', 'RACR/RALM', 'RALM'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
-                    } else if (estatus === 'VMEN') {
+                    } else if (['EMEN', 'VMEN', 'ETOT Men', 'VCTE Men'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería']);
-                    } else if (estatus === 'ETOT' || estatus === 'CANC') {
-                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Página mensajería', 'SimpliRoute']);
-                    }
+                    } 
                 } else if (solicitud === 'Canc') {
                     if (['CONF', 'VBOD', 'RBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP']);
-                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                    } else if (['LIPR', 'EMEN', 'VMEN', 'ETOT Men', 'VCTE Men'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería']);
-                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
-                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería']);
+                    } else if (['VCTE CR', 'ETOT CR'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute']);
                     } else if (['INCO'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP', 'CSC']);
                     }
                 } else if (solicitud === 'Dev Proceso') {
                     if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP']);
-                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
-                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería', 'SAP']);
-                    } else if (estatus === 'RBOD') {
+                    } else if (['VCTE Men', 'ETOT Men'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Página mensajería', 'SAP']);
+                    } else if (['RBOD', 'VCTE CR', 'ETOT CR'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'SAP']);
                     } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'SAP']);
@@ -1296,19 +1367,19 @@
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SAP']);
                     } else if (['VCTE', 'ETOT'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Página mensajería', 'SAP']);
-                    } else if (estatus === 'RBOD') {
+                    } else if (['RBOD', 'VCTE CR', 'ETOT CR'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'SAP']);
-                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                    } else if (['LIPR', 'EMEN', 'VMEN', 'ETOT Men', 'VCTE Men'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'SAP']);
                     }
                 } else if (solicitud === 'Recogido') {
-                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC', 'VCTE'].includes(estatus)) {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC', 'VCTE CR'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'Correo']);
-                    } else if (['ETOT'].includes(estatus)) {
+                    } else if (['ETOT Men', 'ETOT CR'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
                     } else if (estatus === 'RBOD') {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Correo']);
-                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                    } else if (['LIPR', 'EMEN', 'VMEN', 'VCTE Men'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'Correo']);
                     }
                 } else if (solicitud === 'Resurtido') {
@@ -1322,14 +1393,14 @@
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'Correo']);
                     }
                 }  else if (solicitud === 'CamDom') {
-                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
-                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'FMS']);
-                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                    if (['CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC', 'VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    } else if (['INCO'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'FMS']);
                     } else if (estatus === 'RBOD') {
-                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'FMS']);
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
                     } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
-                        seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'FMS']);
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
                     }
                 }  else if (solicitud === 'ENR') {
                     if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
@@ -1340,6 +1411,26 @@
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', 'SimpliRoute', 'Correo']);
                     } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
                         seleccionarMultiplesHerramientas(['SOMS', 'PAO', '4PL', 'Página mensajería', 'Correo']);
+                    }
+                }  else if (solicitud === 'Armado') {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    } else if (estatus === 'RBOD') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    }
+                } else if (solicitud === 'Reprogramar') {
+                    if (['INCO', 'CONF', 'VBOD', 'VALM/BACR', 'RACR/RALM', 'RALM', 'CANC'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    } else if (['VCTE', 'ETOT'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    } else if (estatus === 'RBOD') {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
+                    } else if (['LIPR', 'EMEN', 'VMEN'].includes(estatus)) {
+                        seleccionarMultiplesHerramientas(['SOMS', 'PAO']);
                     }
                 } 
             } else if (tipo === 'MKP') {
@@ -1777,10 +1868,10 @@
                 } 
             } 
             
-            // Formatos especiales
+            // Reportes especiales 
             if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' || tipoPedidoActual === 'MKP') && 
                 solicitudSeleccionada === 'Recogido' && 
-                (estatusSeleccionado === 'ETOT' || estatusSeleccionado === 'ENTREGADO')) {
+                (estatusSeleccionado === 'ETOT Men' || estatusSeleccionado === 'ENTREGADO' || estatusSeleccionado === 'ETOT CR')) {
                 
                 const lineas = [];
                 lineas.push('Recogido: ');
@@ -1811,7 +1902,7 @@
             
             if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' ) && 
                 solicitudSeleccionada === 'ENR' && 
-                (estatusSeleccionado === 'ETOT' || estatusSeleccionado === 'ENTREGADO')) {
+                (estatusSeleccionado === 'ETOT Men' || estatusSeleccionado === 'ENTREGADO' || estatusSeleccionado === 'ETOT CR')) {
                 
                 const lineas = [];
                 lineas.push(`Número de pedido: ${pedido}`);
@@ -1823,11 +1914,10 @@
                 }
 
                 lineas.push('Piezas: ');
-                lineas.push('Cambio o devolución: ');
+                lineas.push('Resurtido o devolución: ');
                 lineas.push('Inventario SAP:');
                 lineas.push('Motivo de solicitud (Ej. Mercancía Equivocada, Incompleta, Dañada): Entrega no reconocida (ENR)');
                 lineas.push('Describe el motivo del inconveniente (Ej. ¿Qué daño es?, si es equivocado ¿Que recibió?, si es incompleto ¿Qué parte o num. de piezas le faltaron): Cliente se comunica para indicar que no recibió su pedido, por lo que se solicita apoyo con la investigación.');
-                lineas.push('Teléfono: ');
                 lineas.push('Domicilio: ');
                 
                 const reporte = lineas.join('\n');
@@ -1842,7 +1932,7 @@
             
             if ((tipoPedidoActual === 'SL' || tipoPedidoActual === 'BT' ) && 
                 solicitudSeleccionada === 'Resurtido' && 
-                (estatusSeleccionado === 'ETOT' || estatusSeleccionado === 'ENTREGADO')) {
+                (estatusSeleccionado === 'ETOT Men' || estatusSeleccionado === 'ENTREGADO' || estatusSeleccionado === 'ETOT CR')) {
                 
                 const lineas = [];
                 lineas.push(`Número de pedido: ${pedido}`);
@@ -1854,7 +1944,7 @@
                 }
 
                 lineas.push('Piezas: ');
-                lineas.push('Cambio o devolución: ');
+                lineas.push('Resurtido o devolución: ');
                 lineas.push('Inventario SAP:');
                 lineas.push('Motivo de solicitud (Ej. Mercancía Equivocada, Incompleta, Dañada): ');
                 lineas.push('Describe el motivo del inconveniente (Ej. ¿Qué daño es?, si es equivocado ¿Que recibió?, si es incompleto ¿Qué parte o num. de piezas le faltaron): ');
