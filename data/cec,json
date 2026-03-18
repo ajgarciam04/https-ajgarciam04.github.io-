@@ -1,0 +1,1663 @@
+[
+  {
+    "id": "1",
+    "nombre": "Liverpool Centro",
+    "correos": [
+      "EGONZALEZS01@LIVERPOOL.COM.MX",
+      "JCGONZALEZR@LIVERPOOL.COM.MX",
+      "MACASTROH@LIVERPOOL.COM.MX",
+      "DCERONA@LIVERPOOL.COM.MX",
+      "DAFRIASH@LIVERPOOL.COM.MX",
+      "JFOLIVARESC@LIVERPOOL.COM.MX",
+      "WBFLORESL@LIVERPOOL.COM.MX",
+      "YICRUZG@LIVERPOOL.COM.MX",
+      "CIFLORESD@LIVERPOOL.COM.MX",
+      "AOROZCOJ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "2",
+    "nombre": "Liverpool Insurgentes",
+    "correos": [
+      "JGONZALEZR13@LIVERPOOL.COM.MX",
+      "GMTERRONESV@LIVERPOOL.COM.MX",
+      "IDVALLEG@LIVERPOOL.COM.MX",
+      "AUAPARICIOR@LIVERPOOL.COM.MX",
+      "AKGONZALEL01@LIVERPOOL.COM.MX",
+      "AMTORRESM@LIVERPOOL.COM.MX",
+      "LAMARTINEC02@LIVERPOOL.COM.MX",
+      "AEALONSOL@LIVERPOOL.COM.MX",
+      "CCONTRERAC@LIVERPOOL.COM.MX",
+      "AAGUZMANC@LIVERPOOL.COM.MX",
+      "CMAYAR@LIVERPOOL.COM.MX",
+      "MFLORESP02@LIVERPOOL.COM.MX",
+      "AMARTINEZM28@LIVERPOOL.COM.MX",
+      "CAHORTAP@LIVERPOOL.COM.MX",
+      "MMARTINEZS01@LIVERPOOL.COM.MX",
+      "AECRUZD@LIVERPOOL.COM.MX",
+      "IAVALLEJOL@LIVERPOOL.COM.MX",
+      "ESANCHEZR17@LIVERPOOL.COM.MX",
+      "NAPALACIOST@LIVERPOOL.COM.MX",
+      "IETOLEDOR@LIVERPOOL.COM.MX",
+      "MEMORTERAA@LIVERPOOL.COM.MX",
+      "MALAVEZV@LIVERPOOL.COM.MX",
+      "YAGALINDOA@LIVERPOOL.COM.MX",
+      "LBCORZOS@LIVERPOOL.COM.MX",
+      "MGALINDOG01@LIVERPOOL.COM.MX",
+      "XDEJM@LIVERPOOL.COM.MX",
+      "FVENEGASM@LIVERPOOL.COM.MX",
+      "FLMONTESJ@LIVERPOOL.COM.MX",
+      "RPEREZG14@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "3",
+    "nombre": "Liverpool Polanco",
+    "correos": [
+      "ZJHERNANDEZA@LIVERPOOL.COM.MX",
+      "AIARANOT@LIVERPOOL.COM.MX",
+      "XSILISD@LIVERPOOL.COM.MX",
+      "CDPEREYRAI@LIVERPOOL.COM.MX",
+      "CGTORRES@LIVERPOOL.COM.MX",
+      "RIRODRIGUM@LIVERPOOL.COM.MX",
+      "EJJIMENEZM@LIVERPOOL.COM.MX",
+      "YAARRIETAB@LIVERPOOL.COM.MX",
+      "LFALEJANDRER@LIVERPOOL.COM.MX",
+      "VMORALESA@LIVERPOOL.COM.MX",
+      "JMNICOLASN@LIVERPOOL.COM.MX",
+      "MZAMORAR03@LIVERPOOL.COM.MX",
+      "ARAMOSL02@LIVERPOOL.COM.MX",
+      "MEMORENOR02@LIVERPOOL.COM.MX",
+      "SAREYES@LIVERPOOL.COM.MX",
+      "MJGONZALEA01@LIVERPOOL.COM.MX",
+      "AETLAPANCOF@LIVERPOOL.COM.MX",
+      "BISIDROE@LIVERPOOL.COM.MX",
+      "VORDAZG@LIVERPOOL.COM.MX",
+      "AJGONZALEZV@LIVERPOOL.COM.MX",
+      "JGLEON@LIVERPOOL.COM.MX",
+      "EJMUNOZL@LIVERPOOL.COM.MX",
+      "DVILLANUEG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "4",
+    "nombre": "Liverpool Satélite",
+    "correos": [
+      "FRIOSP@LIVERPOOL.COM.MX",
+      "DBELTRANS@LIVERPOOL.COM.MX",
+      "ASANTOSH01@LIVERPOOL.COM.MX",
+      "AMPALACIOE@LIVERPOOL.COM.MX",
+      "JSANTOSO@LIVERPOOL.COM.MX",
+      "AJGONZALEM@LIVERPOOL.COM.MX",
+      "JIDECR@LIVERPOOL.COM.MX",
+      "JGONZALEZG@LIVERPOOL.COM.MX",
+      "JCRODRIGUEZD@LIVERPOOL.COM.MX",
+      "TYGUTIERREZR@LIVERPOOL.COM.MX",
+      "AALTAMIRANO@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "5",
+    "nombre": "Liverpool Perisur",
+    "correos": [
+      "LAVELASCOS@LIVERPOOL.COM.MX",
+      "EBAUTISTAC@LIVERPOOL.COM.MX",
+      "MFRAZOC@LIVERPOOL.COM.MX",
+      "JLOPEZP14@LIVERPOOL.COM.MX",
+      "FGJALOMAG@LIVERPOOL.COM.MX",
+      "BLRAMIREZP@LIVERPOOL.COM.MX",
+      "ECHAVEZR04@LIVERPOOL.COM.MX",
+      "AVALLARTAE@LIVERPOOL.COM.MX",
+      "BRCABANASS@LIVERPOOL.COM.MX",
+      "MLIMONE@LIVERPOOL.COM.MX",
+      "GALATORRER@LIVERPOOL.COM.MX",
+      "OBASTIDAG@LIVERPOOL.COM.MX",
+      "LICASAREZG@LIVERPOOL.COM.MX",
+      "YFLORESG01@LIVERPOOL.COM.MX",
+      "IAMONROYH@LIVERPOOL.COM.MX",
+      "LAGONZALEG04@LIVERPOOL.COM.MX",
+      "JECHEVERRIAR@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "6",
+    "nombre": "Liverpool Coapa",
+    "correos": [
+      "ORALVARADOG@LIVERPOOL.COM.MX",
+      "DRMELCHORZ@LIVERPOOL.COM.MX",
+      "AVHERNANDEZC@LIVERPOOL.COM.MX",
+      "AORTIZL02@LIVERPOOL.COM.MX",
+      "DSOTOA@LIVERPOOL.COM.MX",
+      "CLUNAT@LIVERPOOL.COM.MX",
+      "RJIMENEZF@LIVERPOOL.COM.MX",
+      "GMENDOZAM01@LIVERPOOL.COM.MX",
+      "LAFLORESG02@LIVERPOOL.COM.MX",
+      "NBCABRERAR@LIVERPOOL.COM.MX",
+      "VFCASTROG@LIVERPOOL.COM.MX",
+      "AALCANTARAR@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "7",
+    "nombre": "Liverpool Santa Fe",
+    "correos": [
+      "GAOLIVERAN@LIVERPOOL.COM.MX",
+      "RMORALESA01@LIVERPOOL.COM.MX",
+      "AESTRADAC01@LIVERPOOL.COM.MX",
+      "AARRIAGAM@LIVERPOOL.COM.MX",
+      "AGMARINM@LIVERPOOL.COM.MX",
+      "DSANCHEZG06@LIVERPOOL.COM.MX",
+      "GAGARCIAV01@LIVERPOOL.COM.MX",
+      "MAMONTEBELLA@LIVERPOOL.COM.MX",
+      "AMLORENZOR@LIVERPOOL.COM.MX",
+      "ORCHIMEOC@LIVERPOOL.COM.MX",
+      "IYJUAREZA@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "10",
+    "nombre": "Liverpool Xalapa Crystal",
+    "correos": [
+      "RHERNANDEH06@LIVERPOOL.COM.MX",
+      "LILAGUNESV@LIVERPOOL.COM.MX",
+      "JDRODRIGUEZO@LIVERPOOL.COM.MX",
+      "IMAUDIFFREDG@LIVERPOOL.COM.MX",
+      "AASANCHEZV01@LIVERPOOL.COM.MX",
+      "AMACIASL@LIVERPOOL.COM.MX",
+      "ELOPEZH11@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "11",
+    "nombre": "Liverpool Córdoba Crystal",
+    "correos": [
+      "AGONZALEZD05@LIVERPOOL.COM.MX",
+      "YGARCIAR03@LIVERPOOL.COM.MX",
+      "FRUIZM01@LIVERPOOL.COM.MX",
+      "RGALLARDOB@LIVERPOOL.COM.MX",
+      "EARGUELLOZ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "12",
+    "nombre": "Liverpool Villahermosa Crystal",
+    "correos": [
+      "MDECT@LIVERPOOL.COM.MX",
+      "AMGOMEZM@LIVERPOOL.COM.MX",
+      "PARIASL@LIVERPOOL.COM.MX",
+      "LGLOPEZ@LIVERPOOL.COM.MX",
+      "JAPALACIOR@LIVERPOOL.COM.MX",
+      "WAMAGANAM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "14",
+    "nombre": "Liverpool Tuxtla",
+    "correos": [
+      "LLOPEZT@LIVERPOOL.COM.MX",
+      "DJGOMEZL@LIVERPOOL.COM.MX",
+      "VAJIMENEZS@LIVERPOOL.COM.MX",
+      "DSANTOSE@LIVERPOOL.COM.MX",
+      "VINATARENF@LIVERPOOL.COM.MX",
+      "LDRODRIGUEZV@LIVERPOOL.COM.MX",
+      "JRBORGESR@LIVERPOOL.COM.MX",
+      "JJIMENEZG01@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "15",
+    "nombre": "Liverpool Puebla Crystal",
+    "correos": [
+      "AYIBANEZG@LIVERPOOL.COM.MX",
+      "HDMARQUEZG@LIVERPOOL.COM.MX",
+      "ARAMIREZS02@LIVERPOOL.COM.MX",
+      "RHUERTAL@LIVERPOOL.COM.MX",
+      "JJBALTAZARR@LIVERPOOL.COM.MX",
+      "JGJIMENEZC@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "17",
+    "nombre": "Liverpool Poza Rica",
+    "correos": [
+      "JAHERNANDG02@LIVERPOOL.COM.MX",
+      "JAMBRIZG@LIVERPOOL.COM.MX",
+      "ASANTIAGOM01@LIVERPOOL.COM.MX",
+      "AECRUZM@LIVERPOOL.COM.MX",
+      "PSALAZARO01@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "19",
+    "nombre": "Liverpool Tapachula",
+    "correos": [
+      "JJRIVERAP@LIVERPOOL.COM.MX",
+      "JALOPEZT03@LIVERPOOL.COM.MX",
+      "DVAZQUEZV01@LIVERPOOL.COM.MX",
+      "JESANCHEZC@LIVERPOOL.COM.MX",
+      "PJCRUZO@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "21",
+    "nombre": "Liverpool Villahermosa",
+    "correos": [
+      "JCOLANF@LIVERPOOL.COM.MX",
+      "JJARIASG@LIVERPOOL.COM.MX",
+      "JTREJOH@LIVERPOOL.COM.MX",
+      "CMHERRERAR@LIVERPOOL.COM.MX",
+      "LEPRIEGOP@LIVERPOOL.COM.MX",
+      "JMDEDP@LIVERPOOL.COM.MX",
+      "AMMORALESC02@LIVERPOOL.COM.MX",
+      "LOLANV@LIVERPOOL.COM.MX",
+      "AAGOMEZA01@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "22",
+    "nombre": "Liverpool Monterrey Centro",
+    "correos": [
+      "BMMARTINEZG@LIVERPOOL.COM.MX",
+      "JAUBALDOA@LIVERPOOL.COM.MX",
+      "CAPORTILLOR@LIVERPOOL.COM.MX",
+      "JATOVARR@LIVERPOOL.COM.MX",
+      "KGBALDERASG@LIVERPOOL.COM.MX",
+      "IORTIZA@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "25",
+    "nombre": "Liverpool Gran Plaza",
+    "correos": [
+      "JIBLANCOS@LIVERPOOL.COM.MX",
+      "RANTONIO@LIVERPOOL.COM.MX",
+      "LAWILLIAMSL@LIVERPOOL.COM.MX",
+      "MCROMEROP@LIVERPOOL.COM.MX",
+      "EECARDENASA@LIVERPOOL.COM.MX",
+      "KLCARREONT@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "27",
+    "nombre": "Liverpool Acapulco Galerías",
+    "correos": [
+      "RBALTAZARC@LIVERPOOL.COM.MX",
+      "KGMIRANDA@LIVERPOOL.COM.MX",
+      "AYDIRCIOM@LIVERPOOL.COM.MX",
+      "LMSANTOSC@LIVERPOOL.COM.MX",
+      "KJMORALES@LIVERPOOL.COM.MX",
+      "MFLORESC07@LIVERPOOL.COM.MX",
+      "JMPINEDAD@LIVERPOOL.COM.MX",
+      "AESTRADAG02@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "29",
+    "nombre": "Liverpool Perinorte",
+    "correos": [
+      "ASALINASS01@LIVERPOOL.COM.MX",
+      "LGJUAREZG@LIVERPOOL.COM.MX",
+      "EREYESV@LIVERPOOL.COM.MX",
+      "JKANTUNH@LIVERPOOL.COM.MX",
+      "ERGARCIAL@LIVERPOOL.COM.MX",
+      "GDJIMENEZM@LIVERPOOL.COM.MX",
+      "YMVILLEGASO@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "31",
+    "nombre": "Liverpool Monterrey",
+    "correos": [
+      "LVICENCIOM@LIVERPOOL.COM.MX",
+      "JGRIMALDOM@LIVERPOOL.COM.MX",
+      "ERIVERAG01@LIVERPOOL.COM.MX",
+      "PCGARCIAG@LIVERPOOL.COM.MX",
+      "AALOPEZC03@LIVERPOOL.COM.MX",
+      "AKOLIVARESP@LIVERPOOL.COM.MX",
+      "IADAVILAR@LIVERPOOL.COM.MX",
+      "NDCONTRERASP@LIVERPOOL.COM.MX",
+      "BVIBANDAM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "34",
+    "nombre": "Liverpool Chihuahua Presidente",
+    "correos": [
+      "GILOPEZA@LIVERPOOL.COM.MX",
+      "GSOTOM04@LIVERPOOL.COM.MX",
+      "CLGARCIAM01@LIVERPOOL.COM.MX",
+      "JAAVITIAS@LIVERPOOL.COM.MX",
+      "ABARRON@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "36",
+    "nombre": "Liverpool San Luis P el Dorado",
+    "correos": [
+      "MAVALOSO@LIVERPOOL.COM.MX",
+      "MTORRESB@LIVERPOOL.COM.MX",
+      "PACRUZ@LIVERPOOL.COM.MX",
+      "JCASTRO02@LIVERPOOL.COM.MX",
+      "AAYALAS@LIVERPOOL.COM.MX",
+      "PVTORRESM@LIVERPOOL.COM.MX",
+      "VYPEREZC@LIVERPOOL.COM.MX",
+      "ECHEREDIAG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "37",
+    "nombre": "Liverpool Oaxaca",
+    "correos": [
+      "KYHERNANDEZH@LIVERPOOL.COM.MX",
+      "ERGARCIAR@LIVERPOOL.COM.MX",
+      "ACJERONIMOS@LIVERPOOL.COM.MX",
+      "SDGOMEZL@LIVERPOOL.COM.MX",
+      "VSGUTIERREZR@LIVERPOOL.COM.MX",
+      "JGROJASM@LIVERPOOL.COM.MX",
+      "KILEYVAG@LIVERPOOL.COM.MX",
+      "HEHIDALGOM@LIVERPOOL.COM.MX",
+      "APCALZADAM@LIVERPOOL.COM.MX",
+      "JCAYETANOG@LIVERPOOL.COM.MX",
+      "MFLOPEZS01@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "41",
+    "nombre": "Liverpool Tampico",
+    "correos": [
+      "KHPITALUAC@LIVERPOOL.COM.MX",
+      "JAROJASA@LIVERPOOL.COM.MX",
+      "AJHERNANDT@LIVERPOOL.COM.MX",
+      "DMDELAR@LIVERPOOL.COM.MX",
+      "LAHERNANDH@LIVERPOOL.COM.MX",
+      "RFBARCELOH@LIVERPOOL.COM.MX",
+      "LDRODRIGUEZF@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "42",
+    "nombre": "Liverpool Chihuahua",
+    "correos": [
+      "MESALAYANDIC@LIVERPOOL.COM.MX",
+      "SORTIZP01@LIVERPOOL.COM.MX",
+      "EMARTINEZM25@LIVERPOOL.COM.MX",
+      "ELOPEZG14@LIVERPOOL.COM.MX",
+      "VADUARTEH@LIVERPOOL.COM.MX",
+      "OAREYESV@LIVERPOOL.COM.MX",
+      "JGAMEZF@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "43",
+    "nombre": "Liverpool Torreón",
+    "correos": [
+      "RAMEDRANOG@LIVERPOOL.COM.MX",
+      "MALVARADOC@LIVERPOOL.COM.MX",
+      "JDHERNANDEZG@LIVERPOOL.COM.MX",
+      "IAVILAA01@LIVERPOOL.COM.MX",
+      "GNREVELESR@LIVERPOOL.COM.MX",
+      "CITELLOR@LIVERPOOL.COM.MX",
+      "JYORTIZC@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "44",
+    "nombre": "Liverpool Querétaro",
+    "correos": [
+      "KGARCIAR01@LIVERPOOL.COM.MX",
+      "MJIMENEZH02@LIVERPOOL.COM.MX",
+      "GLGONGORAM@LIVERPOOL.COM.MX",
+      "HHHERNANDEZA@LIVERPOOL.COM.MX",
+      "MBGASCAG@LIVERPOOL.COM.MX",
+      "JCLEONO@LIVERPOOL.COM.MX",
+      "AROMEROL08@LIVERPOOL.COM.MX",
+      "MAQUINTERO@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "45",
+    "nombre": "Liverpool Monterrey Valle",
+    "correos": [
+      "IWWALLET@LIVERPOOL.COM.MX",
+      "IORTIZH02@LIVERPOOL.COM.MX",
+      "ENZAVALAV@LIVERPOOL.COM.MX",
+      "IYMARTINEZV@LIVERPOOL.COM.MX",
+      "AAAGUILARC@LIVERPOOL.COM.MX",
+      "NJCEBALLOSG@LIVERPOOL.COM.MX",
+      "NEBANDAC@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "46",
+    "nombre": "Liverpool Culiacán",
+    "correos": [
+      "CELARAC@LIVERPOOL.COM.MX",
+      "MRIVERAB@LIVERPOOL.COM.MX",
+      "YESCORCIAG@LIVERPOOL.COM.MX",
+      "OAOLIVASL@LIVERPOOL.COM.MX",
+      "KABUSTAMANTM@LIVERPOOL.COM.MX",
+      "ELFELIXL@LIVERPOOL.COM.MX",
+      "AAACEVESM@LIVERPOOL.COM.MX",
+      "IRODRIGUEG@LIVERPOOL.COM.MX",
+      "MJCASTROY@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "47",
+    "nombre": "Liverpool Irapuato",
+    "correos": [
+      "JRRAMIREZB01@LIVERPOOL.COM.MX",
+      "AUMARTINEZ@LIVERPOOL.COM.MX",
+      "OJGALLARDOB@LIVERPOOL.COM.MX",
+      "JFCERVANTESJ@LIVERPOOL.COM.MX",
+      "CAROSASA@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "48",
+    "nombre": "Liverpool Pachuca",
+    "correos": [
+      "JABALLESTERO@LIVERPOOL.COM.MX",
+      "GAVILLANUEVG@LIVERPOOL.COM.MX",
+      "JMRUIZC@LIVERPOOL.COM.MX",
+      "JLGERMANG@LIVERPOOL.COM.MX",
+      "RUSANCHEZV@LIVERPOOL.COM.MX",
+      "LGUILLENI@LIVERPOOL.COM.MX",
+      "ABORTIZA@LIVERPOOL.COM.MX",
+      "VJSORIAS@LIVERPOOL.COM.MX",
+      "HSANCHEZH@LIVERPOOL.COM.MX",
+      "PIRAMIREZL@LIVERPOOL.COM.MX",
+      "ADELGADOP01@LIVERPOOL.COM.MX",
+      "KEBARRERAA@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "50",
+    "nombre": "Liverpool Hermosillo",
+    "correos": [
+      "GAREYESC@LIVERPOOL.COM.MX",
+      "TANORZAGARAR@LIVERPOOL.COM.MX",
+      "ARSERRANO@LIVERPOOL.COM.MX",
+      "CAARISPUROZ@LIVERPOOL.COM.MX",
+      "EBMURILLOC@LIVERPOOL.COM.MX",
+      "DMMOLINAC@LIVERPOOL.COM.MX",
+      "MASALAZARC@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "51",
+    "nombre": "Liverpool Guadalajara Centro",
+    "correos": [
+      "MGIBANEZR@LIVERPOOL.COM.MX",
+      "MIMENDOZAG@LIVERPOOL.COM.MX",
+      "JLFLORESR@LIVERPOOL.COM.MX",
+      "MJLOPEZP01@LIVERPOOL.COM.MX",
+      "GGCRUZI@LIVERPOOL.COM.MX",
+      "SPHERNANDEZI@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "53",
+    "nombre": "Liverpool Plaza Patria",
+    "correos": [
+      "EJFLORESC@LIVERPOOL.COM.MX",
+      "FJFLORESP@LIVERPOOL.COM.MX",
+      "LHERNANDEZL@LIVERPOOL.COM.MX",
+      "RMCISNEROSH@LIVERPOOL.COM.MX",
+      "HSSEPULVEDAF@LIVERPOOL.COM.MX",
+      "LGRAMIREZA@LIVERPOOL.COM.MX",
+      "AJSANCHEZI@LIVERPOOL.COM.MX",
+      "PJRAMIREZV@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "54",
+    "nombre": "Liverpool Tepic Centro",
+    "correos": [
+      "MJPENAF@LIVERPOOL.COM.MX",
+      "EMARQUEZD@LIVERPOOL.COM.MX",
+      "LCROMOR@LIVERPOOL.COM.MX",
+      "JECAMBEROG@LIVERPOOL.COM.MX",
+      "FRJIMENEZI@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "55",
+    "nombre": "Liverpool Mazatlán Centro",
+    "correos": [
+      "RBAEZ@LIVERPOOL.COM.MX",
+      "COCRUZD@LIVERPOOL.COM.MX",
+      "EPGONZALEZC@LIVERPOOL.COM.MX",
+      "EACHAVIRAV@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "57",
+    "nombre": "Liverpool Morelia",
+    "correos": [
+      "PESPINOSAT@LIVERPOOL.COM.MX",
+      "RMOJEDAM@LIVERPOOL.COM.MX",
+      "CVAZQUEZT@LIVERPOOL.COM.MX",
+      "PAMARTINEZF@LIVERPOOL.COM.MX",
+      "CFMORAR@LIVERPOOL.COM.MX",
+      "FARAMIREZN@LIVERPOOL.COM.MX",
+      "JARAMIREZV02@LIVERPOOL.COM.MX",
+      "LEHERREJONM@LIVERPOOL.COM.MX",
+      "JJGARCIAP02@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "58",
+    "nombre": "Liverpool Aguascalientes Villa",
+    "correos": [
+      "JARODRIGUEZP@LIVERPOOL.COM.MX",
+      "FJMACIASR@LIVERPOOL.COM.MX",
+      "KASALMONB@LIVERPOOL.COM.MX",
+      "BACANCINOM@LIVERPOOL.COM.MX",
+      "JAGOMEZR03@LIVERPOOL.COM.MX",
+      "AMTISCARENOV@LIVERPOOL.COM.MX",
+      "NVAZQUEZE02@LIVERPOOL.COM.MX",
+      "CYZAMORAL@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "60",
+    "nombre": "Liverpool Ciudad Obregón",
+    "correos": [
+      "RVELAZQUEZR@LIVERPOOL.COM.MX",
+      "HAVEGAI@LIVERPOOL.COM.MX",
+      "RMEZAP@LIVERPOOL.COM.MX",
+      "ETAPIAG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "61",
+    "nombre": "Liverpool Morelia Paseo",
+    "correos": [
+      "RSILVAC@LIVERPOOL.COM.MX",
+      "IOJEDAL@LIVERPOOL.COM.MX",
+      "FJBERRIGAT@LIVERPOOL.COM.MX",
+      "MIMEZA@LIVERPOOL.COM.MX",
+      "AGUTIERREZR@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "62",
+    "nombre": "Liverpool Vallarta",
+    "correos": [
+      "NPEDRAZAO@LIVERPOOL.COM.MX",
+      "JAMARTINCAME@LIVERPOOL.COM.MX",
+      "KAGONZALEZP@LIVERPOOL.COM.MX",
+      "DEVILLASENOC@LIVERPOOL.COM.MX",
+      "#N/A",
+      "WACORTEZM@LIVERPOOL.COM.MX",
+      "BSILVA@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "64",
+    "nombre": "Liverpool Zapopan",
+    "correos": [
+      "EMERCADOB@LIVERPOOL.COM.MX",
+      "MGCARDENASL@LIVERPOOL.COM.MX",
+      "RJBRAVOB@LIVERPOOL.COM.MX",
+      "BESTRADAM@LIVERPOOL.COM.MX",
+      "FJBAEZD@LIVERPOOL.COM.MX",
+      "TVBARTOLOB@LIVERPOOL.COM.MX",
+      "DMRODRIGUEZL@LIVERPOOL.COM.MX",
+      "AYRAMIREZG@LIVERPOOL.COM.MX",
+      "BARIOSA@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "65",
+    "nombre": "Liverpool Saltillo",
+    "correos": [
+      "DRSAUCEDOC@LIVERPOOL.COM.MX",
+      "IEMARTINEZB@LIVERPOOL.COM.MX",
+      "OAMARTELC@LIVERPOOL.COM.MX",
+      "RALOPEZM@LIVERPOOL.COM.MX",
+      "NAVALDESH@LIVERPOOL.COM.MX",
+      "REBELMARESC@LIVERPOOL.COM.MX",
+      "EAVALDESH@LIVERPOOL.COM.MX",
+      "YAKURIO@LIVERPOOL.COM.MX",
+      "PTORRESL02@LIVERPOOL.COM.MX",
+      "AMLOZANOZ@LIVERPOOL.COM.MX",
+      "GAESQUIVELP@LIVERPOOL.COM.MX",
+      "LCMIRANDAR@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "70",
+    "nombre": "Liverpool Tlaquepaque",
+    "correos": [
+      "SJCERVANTESG@LIVERPOOL.COM.MX",
+      "IGGONZALEO@LIVERPOOL.COM.MX",
+      "EALCANTARP@LIVERPOOL.COM.MX",
+      "OBLOPEZA@LIVERPOOL.COM.MX",
+      "AGMORENOL@LIVERPOOL.COM.MX",
+      "JAROJASM02@LIVERPOOL.COM.MX",
+      "KPPRECIADOL@LIVERPOOL.COM.MX",
+      "EDGARCIA@LIVERPOOL.COM.MX",
+      "VDCURIELT@LIVERPOOL.COM.MX",
+      "MDELR@LIVERPOOL.COM.MX",
+      "FPBALTAZARV@LIVERPOOL.COM.MX",
+      "AHMAGANAG@LIVERPOOL.COM.MX",
+      "LFCASTILLOT@LIVERPOOL.COM.MX",
+      "GJPALACIOSR@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "71",
+    "nombre": "Liverpool León",
+    "correos": [
+      "JSRIVERAM@LIVERPOOL.COM.MX",
+      "CFBARAJASM@LIVERPOOL.COM.MX",
+      "ILRAYAP@LIVERPOOL.COM.MX",
+      "VGGOMEZJ@LIVERPOOL.COM.MX",
+      "KSTORRESZ@LIVERPOOL.COM.MX",
+      "FJHERNANDG01@LIVERPOOL.COM.MX",
+      "DVSIERRAD@LIVERPOOL.COM.MX",
+      "JFNAVARROR@LIVERPOOL.COM.MX",
+      "DGOMEZD@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "72",
+    "nombre": "Liverpool Puebla",
+    "correos": [
+      "AFLORESG03@LIVERPOOL.COM.MX",
+      "IUGARCIAS@LIVERPOOL.COM.MX",
+      "JEBLASQUEZA@LIVERPOOL.COM.MX",
+      "NROJASR@LIVERPOOL.COM.MX",
+      "DVILLEGASD@LIVERPOOL.COM.MX",
+      "EFRAGOSOG@LIVERPOOL.COM.MX",
+      "AKJUAREZF@LIVERPOOL.COM.MX",
+      "RANDRACAP@LIVERPOOL.COM.MX",
+      "RCONTRERASD@LIVERPOOL.COM.MX",
+      "AGARCIAV09@LIVERPOOL.COM.MX",
+      "DZACAULAD@LIVERPOOL.COM.MX",
+      "CECAPILLAM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "73",
+    "nombre": "Liverpool Veracruz",
+    "correos": [
+      "ERAMOSR01@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "74",
+    "nombre": "Liverpool Metepec",
+    "correos": [
+      "LACHAVEZP@LIVERPOOL.COM.MX",
+      "EDMARCARIOV@LIVERPOOL.COM.MX",
+      "CAVILA@LIVERPOOL.COM.MX",
+      "ERVALDESG@LIVERPOOL.COM.MX",
+      "AHHERNANDEZC@LIVERPOOL.COM.MX",
+      "AJIMENEZD@LIVERPOOL.COM.MX",
+      "BSILVESTRED@LIVERPOOL.COM.MX",
+      "JDGAVIRAC@LIVERPOOL.COM.MX",
+      "IEGARCIAV@LIVERPOOL.COM.MX",
+      "SLVERAM@LIVERPOOL.COM.MX",
+      "MEGALLEGOSC@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "75",
+    "nombre": "Liverpool Cancún",
+    "correos": [
+      "LFPOOLU@LIVERPOOL.COM.MX",
+      "HASOSAP@LIVERPOOL.COM.MX",
+      "EIBANEZC@LIVERPOOL.COM.MX",
+      "NABADIAC@LIVERPOOL.COM.MX",
+      "DACETZC@LIVERPOOL.COM.MX",
+      "MLLIRAF@LIVERPOOL.COM.MX",
+      "JNCATZIMB@LIVERPOOL.COM.MX",
+      "SMTRUJILLOM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "76",
+    "nombre": "Liverpool Mérida",
+    "correos": [
+      "MVROMEROJ@LIVERPOOL.COM.MX",
+      "GRCETZA@LIVERPOOL.COM.MX",
+      "VMVARGUEZG@LIVERPOOL.COM.MX",
+      "LKHERNANDEZR@LIVERPOOL.COM.MX",
+      "LJUAREZR02@LIVERPOOL.COM.MX",
+      "IALORIAR@LIVERPOOL.COM.MX",
+      "JACHANP@LIVERPOOL.COM.MX",
+      "WFALVAREZB@LIVERPOOL.COM.MX",
+      "EAPUCC@LIVERPOOL.COM.MX",
+      "JFPRESUELB@LIVERPOOL.COM.MX",
+      "GAMADOLNADOP@LIVERPOOL.COM.MX",
+      "JEESPANAR@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "77",
+    "nombre": "Liverpool Cuernavaca",
+    "correos": [
+      "JLFERNANDEZL@LIVERPOOL.COM.MX",
+      "RCARNALLAT@LIVERPOOL.COM.MX",
+      "MFSANCHEZM@LIVERPOOL.COM.MX",
+      "GROMEROT01@LIVERPOOL.COM.MX",
+      "GLOREDOE@LIVERPOOL.COM.MX",
+      "MJAIMES@LIVERPOOL.COM.MX",
+      "DGARCIAN@LIVERPOOL.COM.MX",
+      "KNARIZMENDIB@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "78",
+    "nombre": "Liverpool Guadalajara",
+    "correos": [
+      "DIRODRIGUEZG@LIVERPOOL.COM.MX",
+      "LJMARTINEZV@LIVERPOOL.COM.MX",
+      "MFPAZB@LIVERPOOL.COM.MX",
+      "SSHERNANDEZH@LIVERPOOL.COM.MX",
+      "CJMARTINEZR@LIVERPOOL.COM.MX",
+      "BBARELLANOR@LIVERPOOL.COM.MX",
+      "JPPLASCENCIM@LIVERPOOL.COM.MX",
+      "NUARIASB@LIVERPOOL.COM.MX",
+      "PDRIVERAA@LIVERPOOL.COM.MX",
+      "EEASCENCIOE@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "79",
+    "nombre": "Liverpool Chetumal",
+    "correos": [
+      "ZESUAREZH@LIVERPOOL.COM.MX",
+      "JLSANTOS@LIVERPOOL.COM.MX",
+      "EAROBERTOSD@LIVERPOOL.COM.MX",
+      "GRAPARICIOA@LIVERPOOL.COM.MX",
+      "JFIGUEROAC01@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "80",
+    "nombre": "Liverpool Ecatepec",
+    "correos": [
+      "CAAGUILAR@LIVERPOOL.COM.MX",
+      "MAMARTINEZF@LIVERPOOL.COM.MX",
+      "EDDIAZD@LIVERPOOL.COM.MX",
+      "MAONTIVEROSG@LIVERPOOL.COM.MX",
+      "OEUROZAT@LIVERPOOL.COM.MX",
+      "JFGONZALEZP@LIVERPOOL.COM.MX",
+      "JNAKASONEN@LIVERPOOL.COM.MX",
+      "AVAZQUEZA03@LIVERPOOL.COM.MX",
+      "IMHERNANDEZP@LIVERPOOL.COM.MX",
+      "JIRUBIA@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "81",
+    "nombre": "Liverpool Parque Delta",
+    "correos": [
+      "JRADANC@LIVERPOOL.COM.MX",
+      "GGILS@LIVERPOOL.COM.MX",
+      "ADIAZA06@LIVERPOOL.COM.MX",
+      "FBENITEZG@LIVERPOOL.COM.MX",
+      "YAPEREZS@LIVERPOOL.COM.MX",
+      "JRIVERAS01@LIVERPOOL.COM.MX",
+      "GORTAD@LIVERPOOL.COM.MX",
+      "SJGOMEZT@LIVERPOOL.COM.MX",
+      "KRVELAZQUEZS@LIVERPOOL.COM.MX",
+      "AABAROJASS@LIVERPOOL.COM.MX",
+      "GJAPOLINARS@LIVERPOOL.COM.MX",
+      "RGRAMOSR@LIVERPOOL.COM.MX",
+      "LIZGUERRAP@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "82",
+    "nombre": "Liverpool Xalapa",
+    "correos": [
+      "JPAGUILARG@LIVERPOOL.COM.MX",
+      "JEGALVANR@LIVERPOOL.COM.MX",
+      "RIHERNANDEZM@LIVERPOOL.COM.MX",
+      "KSLOPEZR@LIVERPOOL.COM.MX",
+      "GAGARCIAA@LIVERPOOL.COM.MX",
+      "LCORTEZH@LIVERPOOL.COM.MX",
+      "AECOLORADOG@LIVERPOOL.COM.MX",
+      "JMLOPEZA01@LIVERPOOL.COM.MX",
+      "NIAVILAB@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "83",
+    "nombre": "Liverpool Lindavista",
+    "correos": [
+      "AMBUENDIAR@LIVERPOOL.COM.MX",
+      "FROMEROM@LIVERPOOL.COM.MX",
+      "AEHERNANDA@LIVERPOOL.COM.MX",
+      "DMARTINEZC07@LIVERPOOL.COM.MX",
+      "NMJAIMEH@LIVERPOOL.COM.MX",
+      "ANHERNANDM@LIVERPOOL.COM.MX",
+      "AHERNANDEZZ@LIVERPOOL.COM.MX",
+      "JREYNAC@LIVERPOOL.COM.MX",
+      "EMORENOT@LIVERPOOL.COM.MX",
+      "IRAMIREZT01@LIVERPOOL.COM.MX",
+      "RLOPEZC01@LIVERPOOL.COM.MX",
+      "GYORELLANAC@LIVERPOOL.COM.MX",
+      "RAVILLEGASZ@LIVERPOOL.COM.MX",
+      "KLAYALAN@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "84",
+    "nombre": "Liverpool Colima",
+    "correos": [
+      "DMGUERREROM@LIVERPOOL.COM.MX",
+      "JJGARCIAG01@LIVERPOOL.COM.MX",
+      "MRMARTINEZ@LIVERPOOL.COM.MX",
+      "JFBALDERRABM@LIVERPOOL.COM.MX",
+      "RSERRANOE01@LIVERPOOL.COM.MX",
+      "ARROLONG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "86",
+    "nombre": "Liverpool Aguascalientes",
+    "correos": [
+      "JGTORRESB@LIVERPOOL.COM.MX",
+      "FJPADILLA@LIVERPOOL.COM.MX",
+      "MEAVILAA@LIVERPOOL.COM.MX",
+      "MMHERNANDL01@LIVERPOOL.COM.MX",
+      "AVELASQUEZR@LIVERPOOL.COM.MX",
+      "MRUIZG@LIVERPOOL.COM.MX",
+      "DMROMOM@LIVERPOOL.COM.MX",
+      "GARAMOSP@LIVERPOOL.COM.MX",
+      "APGARANZUAYH@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "87",
+    "nombre": "Liverpool Tezontle",
+    "correos": [
+      "LKZUNIGAC@LIVERPOOL.COM.MX",
+      "MPMARTINEM@LIVERPOOL.COM.MX",
+      "BMORENOC@LIVERPOOL.COM.MX",
+      "MAFUENTESC@LIVERPOOL.COM.MX",
+      "ZSUAREZP@LIVERPOOL.COM.MX",
+      "AVNOLASCOR@LIVERPOOL.COM.MX",
+      "CMRUBIOL@LIVERPOOL.COM.MX",
+      "AMGONZALEZ@LIVERPOOL.COM.MX",
+      "BAAGUILLONP@LIVERPOOL.COM.MX",
+      "RATANASIOH@LIVERPOOL.COM.MX",
+      "CICARVARINC@LIVERPOOL.COM.MX",
+      "JRCASTILLOA@LIVERPOOL.COM.MX",
+      "DODIAZM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "88",
+    "nombre": "Liverpool Tepic",
+    "correos": [
+      "PHERNANDET02@LIVERPOOL.COM.MX",
+      "MEMONTESA@LIVERPOOL.COM.MX",
+      "ADALCARAZD@LIVERPOOL.COM.MX",
+      "ANOLIVARESV@LIVERPOOL.COM.MX",
+      "JARODRIGUL@LIVERPOOL.COM.MX",
+      "KLARROYOS@LIVERPOOL.COM.MX",
+      "ODBARAJASP@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "89",
+    "nombre": "Liverpool Durango",
+    "correos": [
+      "JARODRIGUS01@LIVERPOOL.COM.MX",
+      "GVARGASB@LIVERPOOL.COM.MX",
+      "JIESTRADAR@LIVERPOOL.COM.MX",
+      "JSTELLESG@LIVERPOOL.COM.MX",
+      "EEOROZCOC@LIVERPOOL.COM.MX",
+      "HFFRANCOC@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "102",
+    "nombre": "Liverpool Campeche",
+    "correos": [
+      "EIROSALESS@LIVERPOOL.COM.MX",
+      "VCVELAZQUEZ@LIVERPOOL.COM.MX",
+      "GCLOEZAL@LIVERPOOL.COM.MX",
+      "DAESCAMILLAC@LIVERPOOL.COM.MX",
+      "JDHERNANDM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "103",
+    "nombre": "Liverpool Interlomas",
+    "correos": [
+      "LDURRUSQUIEM@LIVERPOOL.COM.MX",
+      "PJUAREZU@LIVERPOOL.COM.MX",
+      "JCCUEVASS@LIVERPOOL.COM.MX",
+      "EHERNANDEL10@LIVERPOOL.COM.MX",
+      "RMARTINEZM01@LIVERPOOL.COM.MX",
+      "NVMARTINEZM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "104",
+    "nombre": "Liverpool Atizapan",
+    "correos": [
+      "LACRUZA01@LIVERPOOL.COM.MX",
+      "IJCASTILLOL@LIVERPOOL.COM.MX",
+      "OBERNALY@LIVERPOOL.COM.MX",
+      "ETREJOR01@LIVERPOOL.COM.MX",
+      "CSERNAH@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "105",
+    "nombre": "Liverpool Celaya",
+    "correos": [
+      "MALUNAL@LIVERPOOL.COM.MX",
+      "JANAVAM@LIVERPOOL.COM.MX",
+      "FJROJASJ@LIVERPOOL.COM.MX",
+      "AZSALAZARC@LIVERPOOL.COM.MX",
+      "RMSILVAA@LIVERPOOL.COM.MX",
+      "AJMENDIOLAV@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "106",
+    "nombre": "Liverpool Puebla Serdán",
+    "correos": [
+      "CIGUERREROB@LIVERPOOL.COM.MX",
+      "JGGONZALEZJ@LIVERPOOL.COM.MX",
+      "AHUITZITLS@LIVERPOOL.COM.MX",
+      "LGALICIAH@LIVERPOOL.COM.MX",
+      "ORMARTINEZD@LIVERPOOL.COM.MX",
+      "EHERNANDEM12@LIVERPOOL.COM.MX",
+      "JGUZMAN@LIVERPOOL.COM.MX",
+      "GBANDALAM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "110",
+    "nombre": "Liverpool Ciudad Juarez",
+    "correos": [
+      "LHERRERAM01@LIVERPOOL.COM.MX",
+      "CYBENITEZP@LIVERPOOL.COM.MX",
+      "HVILLEGASA@LIVERPOOL.COM.MX",
+      "KJHUERTAG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "113",
+    "nombre": "Liverpool Monterrey Cumbres",
+    "correos": [
+      "EMEJIAL@LIVERPOOL.COM.MX",
+      "ACALVARADOR@LIVERPOOL.COM.MX",
+      "CYSOLISM@LIVERPOOL.COM.MX",
+      "MFLOREST@LIVERPOOL.COM.MX",
+      "HNROSALESR@LIVERPOOL.COM.MX",
+      "ZMHERNANDEZH@LIVERPOOL.COM.MX",
+      "ACSOTOV@LIVERPOOL.COM.MX",
+      "ATSOSAS@LIVERPOOL.COM.MX",
+      "JGLOPEZO@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "117",
+    "nombre": "Liverpool Mazatlán",
+    "correos": [
+      "YGTIRADOG@LIVERPOOL.COM.MX",
+      "OGAMARILLAST@LIVERPOOL.COM.MX",
+      "JAPERAZAT@LIVERPOOL.COM.MX",
+      "SCRUZC03@LIVERPOOL.COM.MX",
+      "QZONTIVEROSV@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "121",
+    "nombre": "Liverpool Orizaba",
+    "correos": [
+      "AALVAREZJ@LIVERPOOL.COM.MX",
+      "RPEREZG07@LIVERPOOL.COM.MX",
+      "CJHERNANDS@LIVERPOOL.COM.MX",
+      "AMLOPEZV02@LIVERPOOL.COM.MX",
+      "JARAMIREZV06@LIVERPOOL.COM.MX",
+      "MELEONB@LIVERPOOL.COM.MX",
+      "RRAMIREZQ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "126",
+    "nombre": "Liverpool Ciudad Victoria",
+    "correos": [
+      "EGDIMAST@LIVERPOOL.COM.MX",
+      "SRODRIGUEA02@LIVERPOOL.COM.MX",
+      "AFELIXS@LIVERPOOL.COM.MX",
+      "MAMONTOYAG@LIVERPOOL.COM.MX",
+      "FAMARTINEZ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "127",
+    "nombre": "Liverpool Zacatecas",
+    "correos": [
+      "KAACEVEDOD@LIVERPOOL.COM.MX",
+      "JATRETOM@LIVERPOOL.COM.MX",
+      "RORTEGA@LIVERPOOL.COM.MX",
+      "KESANDOVALV@LIVERPOOL.COM.MX",
+      "SARTEAGAP@LIVERPOOL.COM.MX",
+      "SAOROZCOB@LIVERPOOL.COM.MX",
+      "SMMENDOZAS@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "134",
+    "nombre": "Liverpool Vhmosa. Altabrisa",
+    "correos": [
+      "IJIMENEZS@LIVERPOOL.COM.MX",
+      "OSMIRANDAV@LIVERPOOL.COM.MX",
+      "IMMENDOZAR@LIVERPOOL.COM.MX",
+      "AKMAGANAC@LIVERPOOL.COM.MX",
+      "LAHERNANDR06@LIVERPOOL.COM.MX",
+      "JDECD01@LIVERPOOL.COM.MX",
+      "SALUNAP@LIVERPOOL.COM.MX",
+      "KMGARCILAZOL@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "135",
+    "nombre": "Liverpool Oblatos",
+    "correos": [
+      "JJTOVARR@LIVERPOOL.COM.MX",
+      "IILUNAM@LIVERPOOL.COM.MX",
+      "CAVILLALOBOS@LIVERPOOL.COM.MX",
+      "EDPULIDOG@LIVERPOOL.COM.MX",
+      "OLDELGADOP@LIVERPOOL.COM.MX",
+      "MVCORONADOO@LIVERPOOL.COM.MX",
+      "DACASTILLO@LIVERPOOL.COM.MX",
+      "BEESPINOZAF@LIVERPOOL.COM.MX",
+      "IREYESA03@LIVERPOOL.COM.MX",
+      "NBMORENOM@LIVERPOOL.COM.MX",
+      "MECRUZT@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "136",
+    "nombre": "Liverpool San Luis Potosí",
+    "correos": [
+      "LFMARTINEZL@LIVERPOOL.COM.MX",
+      "JCGONZALEG04@LIVERPOOL.COM.MX",
+      "JSHERNANDEZR@LIVERPOOL.COM.MX",
+      "RSHERNANDEZA@LIVERPOOL.COM.MX",
+      "JAHUERTAL@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "140",
+    "nombre": "Liverpool Toluca",
+    "correos": [
+      "FSILVESTREV@LIVERPOOL.COM.MX",
+      "HGONZALEZF@LIVERPOOL.COM.MX",
+      "AJROJASB@LIVERPOOL.COM.MX",
+      "PIJIMENEZO@LIVERPOOL.COM.MX",
+      "AINAVARRETEV@LIVERPOOL.COM.MX",
+      "ACORTEZT01@LIVERPOOL.COM.MX",
+      "DYMARTINEZ@LIVERPOOL.COM.MX",
+      "KECASIMIROG@LIVERPOOL.COM.MX",
+      "SXHAROC@LIVERPOOL.COM.MX",
+      "LDCRUZO@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "165",
+    "nombre": "Liverpool Veracruz El Dorado",
+    "correos": [
+      "OGMARTINEZJ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "166",
+    "nombre": "Liverpool León Sur",
+    "correos": [
+      "JCRANGELR01@LIVERPOOL.COM.MX",
+      "CDTORRESA@LIVERPOOL.COM.MX",
+      "AAVILAG03@LIVERPOOL.COM.MX",
+      "SFLORESS01@LIVERPOOL.COM.MX",
+      "CGJARAMILLOB@LIVERPOOL.COM.MX",
+      "JPFLORESB@LIVERPOOL.COM.MX",
+      "AJCABRERAR@LIVERPOOL.COM.MX",
+      "JEPEDROZAJ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "168",
+    "nombre": "Liverpool Santa Anita",
+    "correos": [
+      "CESIORDIAR@LIVERPOOL.COM.MX",
+      "AGORTEGAL@LIVERPOOL.COM.MX",
+      "AKGONZALEG01@LIVERPOOL.COM.MX",
+      "RSANCHEZL09@LIVERPOOL.COM.MX",
+      "MFGARCIAC03@LIVERPOOL.COM.MX",
+      "MAPALACIOT@LIVERPOOL.COM.MX",
+      "KEPAZT@LIVERPOOL.COM.MX",
+      "JLENCISOR@LIVERPOOL.COM.MX",
+      "TMMORALESG@LIVERPOOL.COM.MX",
+      "AGSALAZARJ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "169",
+    "nombre": "Liverpool Tuxpan",
+    "correos": [
+      "EAGUTIERRM@LIVERPOOL.COM.MX",
+      "MCMARTINEC03@LIVERPOOL.COM.MX",
+      "PSANTIAGO@LIVERPOOL.COM.MX",
+      "PHERNANDEZF@LIVERPOOL.COM.MX",
+      "VLIMAH@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "170",
+    "nombre": "Liverpool Ciudad Jardin",
+    "correos": [
+      "MAHERNANDR02@LIVERPOOL.COM.MX",
+      "FABEIJONH@LIVERPOOL.COM.MX",
+      "KAVARGASV@LIVERPOOL.COM.MX",
+      "WSLOPEZV@LIVERPOOL.COM.MX",
+      "ARUIZV01@LIVERPOOL.COM.MX",
+      "OEBALBUENAR@LIVERPOOL.COM.MX",
+      "RCORTESA@LIVERPOOL.COM.MX",
+      "SLREYESC@LIVERPOOL.COM.MX",
+      "VJVELAZQUEZF@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "173",
+    "nombre": "Liverpool Queretaro Antea",
+    "correos": [
+      "IROJASM@LIVERPOOL.COM.MX",
+      "EGARCIAT04@LIVERPOOL.COM.MX",
+      "DLHERNANDA01@LIVERPOOL.COM.MX",
+      "CEMEZAE@LIVERPOOL.COM.MX",
+      "ALPRADOA@LIVERPOOL.COM.MX",
+      "AESPINOZAR01@LIVERPOOL.COM.MX",
+      "CDOMINGUEO@LIVERPOOL.COM.MX",
+      "GJGAYTANC@LIVERPOOL.COM.MX",
+      "RBAHENAA@LIVERPOOL.COM.MX",
+      "YMARINM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "175",
+    "nombre": "Liverpool Tampico Altama",
+    "correos": [
+      "ADESPINOZAE@LIVERPOOL.COM.MX",
+      "RLLOPEZH@LIVERPOOL.COM.MX",
+      "LGHERNANDEZH@LIVERPOOL.COM.MX",
+      "FTROMEROR@LIVERPOOL.COM.MX",
+      "JCALVISOC@LIVERPOOL.COM.MX",
+      "PYLOREDOG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "176",
+    "nombre": "Liverpool Mitikah",
+    "correos": [
+      "RFLORESC01@LIVERPOOL.COM.MX",
+      "PMORENOP@LIVERPOOL.COM.MX",
+      "RSGONZALEZG@LIVERPOOL.COM.MX",
+      "CVGONZALEZM@LIVERPOOL.COM.MX",
+      "EGMARTINEZR@LIVERPOOL.COM.MX",
+      "RCHAVARRIAE@LIVERPOOL.COM.MX",
+      "HCEDILLOG@LIVERPOOL.COM.MX",
+      "FJMORALESM@LIVERPOOL.COM.MX",
+      "BPONCEO@LIVERPOOL.COM.MX",
+      "MBCHAVEZO@LIVERPOOL.COM.MX",
+      "PASANCHEZS@LIVERPOOL.COM.MX",
+      "MAMARIN@LIVERPOOL.COM.MX",
+      "MLOPEZM21@LIVERPOOL.COM.MX",
+      "HILUNAV@LIVERPOOL.COM.MX",
+      "DNUNEZ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "177",
+    "nombre": "Liverpool Tlaxcala",
+    "correos": [
+      "ANHERNANDR@LIVERPOOL.COM.MX",
+      "CYSANCHEZA@LIVERPOOL.COM.MX",
+      "MCABRERAF@LIVERPOOL.COM.MX",
+      "JCUECUECHAL@LIVERPOOL.COM.MX",
+      "MVELAZQUEZ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "178",
+    "nombre": "Liverpool Zamora",
+    "correos": [
+      "ARODRIGUEM05@LIVERPOOL.COM.MX",
+      "SRMURILLOM@LIVERPOOL.COM.MX",
+      "TSHERNANDEZN@LIVERPOOL.COM.MX",
+      "AJCISNEROSG@LIVERPOOL.COM.MX",
+      "AGVILLEGASA@LIVERPOOL.COM.MX",
+      "EMANAYAG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "180",
+    "nombre": "Liverpool Coacalco",
+    "correos": [
+      "ANAVARRETM@LIVERPOOL.COM.MX",
+      "ALRODRIGUM01@LIVERPOOL.COM.MX",
+      "BSLOZANOG@LIVERPOOL.COM.MX",
+      "AGONZALEZA01@LIVERPOOL.COM.MX",
+      "CEDIAZL@LIVERPOOL.COM.MX",
+      "EGROCHAP@LIVERPOOL.COM.MX",
+      "AKMARTINEG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "186",
+    "nombre": "Liverpool Tlalnepantla",
+    "correos": [
+      "JRODRIGUEM05@LIVERPOOL.COM.MX",
+      "JRALVAREZS@LIVERPOOL.COM.MX",
+      "HVALDEZJ@LIVERPOOL.COM.MX",
+      "AANDRADET01@LIVERPOOL.COM.MX",
+      "LCJUAREZA@LIVERPOOL.COM.MX",
+      "ECRUZM@LIVERPOOL.COM.MX",
+      "LMAGUIRRET@LIVERPOOL.COM.MX",
+      "YGUTIERREZ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "189",
+    "nombre": "Liverpool Monterrey la Fe",
+    "correos": [
+      "GCASTROD@LIVERPOOL.COM.MX",
+      "GPMARQUEZM@LIVERPOOL.COM.MX",
+      "MMARENTESC@LIVERPOOL.COM.MX",
+      "LAHERNADEZC@LIVERPOOL.COM.MX",
+      "FPEREZG03@LIVERPOOL.COM.MX",
+      "AAESTRADA@LIVERPOOL.COM.MX",
+      "ETRIVERAR@LIVERPOOL.COM.MX",
+      "HFTORRESS@LIVERPOOL.COM.MX",
+      "#N/A"
+    ]
+  },
+  {
+    "id": "191",
+    "nombre": "Liverpool Tuxtla Oriente",
+    "correos": [
+      "FFGOMEZM@LIVERPOOL.COM.MX",
+      "JMMENDOZAC@LIVERPOOL.COM.MX",
+      "LOREYESR@LIVERPOOL.COM.MX",
+      "LAGARCIAV03@LIVERPOOL.COM.MX",
+      "MFORDAZD@LIVERPOOL.COM.MX",
+      "ADSANCHEZJ@LIVERPOOL.COM.MX",
+      "MLOPEZO08@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "192",
+    "nombre": "Liverpool Cuautla",
+    "correos": [
+      "KNSANCHEZV@LIVERPOOL.COM.MX",
+      "ISANCHEZV@LIVERPOOL.COM.MX",
+      "LGVERGARAV@LIVERPOOL.COM.MX",
+      "IJAGUILARH@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "194",
+    "nombre": "Liverpool Salamanca",
+    "correos": [
+      "DRSANCHEZG@LIVERPOOL.COM.MX",
+      "GHESCUDEROC@LIVERPOOL.COM.MX",
+      "EALMANZAV@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "195",
+    "nombre": "Liverpool Tecamac",
+    "correos": [
+      "AMENAA@LIVERPOOL.COM.MX",
+      "BDLOPEZV@LIVERPOOL.COM.MX",
+      "DBAUTISTAA@LIVERPOOL.COM.MX",
+      "DSSALAZARV@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "199",
+    "nombre": "Liverpool Toreo",
+    "correos": [
+      "APSERRANOP@LIVERPOOL.COM.MX",
+      "EASANCHEZM@LIVERPOOL.COM.MX",
+      "ADMORALESM@LIVERPOOL.COM.MX",
+      "AFOCOTEB@LIVERPOOL.COM.MX",
+      "JACARRILLOR@LIVERPOOL.COM.MX",
+      "RMARTINEZA04@LIVERPOOL.COM.MX",
+      "AHUERTAP@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "300",
+    "nombre": "Liverpool Tehuacán",
+    "correos": [
+      "JRAMIREZB01@LIVERPOOL.COM.MX",
+      "YROMEROE@LIVERPOOL.COM.MX",
+      "RJIMENEZT@LIVERPOOL.COM.MX",
+      "ALINARESH@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "302",
+    "nombre": "Liverpool Sn Miguel de Allende",
+    "correos": [
+      "LFMARTINEZE@LIVERPOOL.COM.MX",
+      "CEZAMUDIOM@LIVERPOOL.COM.MX",
+      "AJSANCHEZR02@LIVERPOOL.COM.MX",
+      "JJFRIASR@LIVERPOOL.COM.MX",
+      "AMARTINEZV06@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "303",
+    "nombre": "Liverpool Chilpancingo",
+    "correos": [
+      "YGIJONA@LIVERPOOL.COM.MX",
+      "AMARTINEZP@LIVERPOOL.COM.MX",
+      "HARIOSC@LIVERPOOL.COM.MX",
+      "NAMONICOG@LIVERPOOL.COM.MX",
+      "GRAMIREZL@LIVERPOOL.COM.MX",
+      "LAGALEANAG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "304",
+    "nombre": "Liverpool Ciudad del Carmen",
+    "correos": [
+      "CPTORRESN@LIVERPOOL.COM.MX",
+      "RIJIMENEZ@LIVERPOOL.COM.MX",
+      "ECARIASH@LIVERPOOL.COM.MX",
+      "MBLANQUETG@LIVERPOOL.COM.MX",
+      "CMORENOS@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "305",
+    "nombre": "Liverpool Los Mochis",
+    "correos": [
+      "LALOPEZ@LIVERPOOL.COM.MX",
+      "JRSANTILLANO@LIVERPOOL.COM.MX",
+      "LFRUIZJ@LIVERPOOL.COM.MX",
+      "JCCASTROB@LIVERPOOL.COM.MX",
+      "VCOVARRUBIAC@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "306",
+    "nombre": "Liverpool Acapulco",
+    "correos": [
+      "NBIBIANOA@LIVERPOOL.COM.MX",
+      "JCPORTILLOM@LIVERPOOL.COM.MX",
+      "ANAVAR01@LIVERPOOL.COM.MX",
+      "JXOCHIHUAM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "307",
+    "nombre": "Liverpool Playa del Carmen",
+    "correos": [
+      "JGSAUCEDOR@LIVERPOOL.COM.MX",
+      "LROJASC02@LIVERPOOL.COM.MX",
+      "LMMATOSC@LIVERPOOL.COM.MX",
+      "SGCHEC@LIVERPOOL.COM.MX",
+      "MFNOVELOC@LIVERPOOL.COM.MX",
+      "EGCAMPOSB@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "308",
+    "nombre": "Liverpool La Paz",
+    "correos": [
+      "PAROSASS@LIVERPOOL.COM.MX",
+      "JARUIZF01@LIVERPOOL.COM.MX",
+      "ENRODRIGUEZA@LIVERPOOL.COM.MX",
+      "AOORTEGAA@LIVERPOOL.COM.MX",
+      "MNCESENAC@LIVERPOOL.COM.MX",
+      "MPEREZM08@LIVERPOOL.COM.MX",
+      "LIDEJG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "310",
+    "nombre": "Liverpool Istmo",
+    "correos": [
+      "ALOPEZZ01@LIVERPOOL.COM.MX",
+      "MLOPEZJ@LIVERPOOL.COM.MX",
+      "PIPEREZD@LIVERPOOL.COM.MX",
+      "CAORTIZK@LIVERPOOL.COM.MX",
+      "FEGARCIAM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "311",
+    "nombre": "Liverpool San Juan del Rio",
+    "correos": [
+      "KFLORESB01@LIVERPOOL.COM.MX",
+      "JCAMADORG@LIVERPOOL.COM.MX",
+      "DEIRINEOD@LIVERPOOL.COM.MX",
+      "LDYANEZM@LIVERPOOL.COM.MX",
+      "JAARRIAGAB@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "312",
+    "nombre": "Liverpool Mexicali",
+    "correos": [
+      "LABADILLAQ@LIVERPOOL.COM.MX",
+      "LMMORAM@LIVERPOOL.COM.MX",
+      "BVEGAC@LIVERPOOL.COM.MX",
+      "HDVILLAFANI@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "386",
+    "nombre": "Liverpool Parque Puebla",
+    "correos": [
+      "AMENDEZC02@LIVERPOOL.COM.MX",
+      "ACCORTESD@LIVERPOOL.COM.MX",
+      "NROSALESC@LIVERPOOL.COM.MX",
+      "OFLORESH@LIVERPOOL.COM.MX",
+      "KEMARTINEZC@LIVERPOOL.COM.MX",
+      "AJGARFIASN@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "387",
+    "nombre": "Liverpool Hermosillo Galerías",
+    "correos": [
+      "LARUIZL@LIVERPOOL.COM.MX",
+      "GEVAZQUEZC@LIVERPOOL.COM.MX",
+      "DAVAZQUEZ@LIVERPOOL.COM.MX",
+      "COSUNAL@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "454",
+    "nombre": "Liverpool Guanajuato",
+    "correos": [
+      "RAAGUILARC@LIVERPOOL.COM.MX",
+      "YANAVARRETEM@LIVERPOOL.COM.MX",
+      "AEPEREZD@LIVERPOOL.COM.MX",
+      "JUMARTINEZV@LIVERPOOL.COM.MX",
+      "JAAGUIRREG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "455",
+    "nombre": "Liverpool Paseo Queretaro",
+    "correos": [
+      "JDOMINGUEC@LIVERPOOL.COM.MX",
+      "LGPARRAV@LIVERPOOL.COM.MX",
+      "LFCUELLAR@LIVERPOOL.COM.MX",
+      "JALICEAR@LIVERPOOL.COM.MX",
+      "NELACIOE@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "456",
+    "nombre": "Liverpool Antenas Iztapalapa",
+    "correos": [
+      "JMORAB@LIVERPOOL.COM.MX",
+      "LARIOS@LIVERPOOL.COM.MX",
+      "JVALADEZF@LIVERPOOL.COM.MX",
+      "JDEC@LIVERPOOL.COM.MX",
+      "PAGUSTINR@LIVERPOOL.COM.MX",
+      "CACHAPARROM@LIVERPOOL.COM.MX",
+      "SDHERNANDEZM@LIVERPOOL.COM.MX",
+      "JUVELAZCOM@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "457",
+    "nombre": "Liverpool Monterrey Esfera",
+    "correos": [
+      "ALMEXICANOS@LIVERPOOL.COM.MX",
+      "RJRODRIGUEZZ@LIVERPOOL.COM.MX",
+      "FDPRIETOR@LIVERPOOL.COM.MX",
+      "LDPEREZA@LIVERPOOL.COM.MX",
+      "AECAVAZOSA@LIVERPOOL.COM.MX",
+      "RAURBINAR@LIVERPOOL.COM.MX",
+      "RASOSAG@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "458",
+    "nombre": "Liverpool Mérida Cabo Norte",
+    "correos": [
+      "JEPOOTA@LIVERPOOL.COM.MX",
+      "JCRAMIREZC03@LIVERPOOL.COM.MX",
+      "MAROJASO@LIVERPOOL.COM.MX",
+      "AVSALAS@LIVERPOOL.COM.MX",
+      "KGSANCHEZC@LIVERPOOL.COM.MX",
+      "KMZETINAR@LIVERPOOL.COM.MX",
+      "AMMEDINAF@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "463",
+    "nombre": "Liverpool Oaxaca Plaza Bella",
+    "correos": [
+      "JDMUNOZM@LIVERPOOL.COM.MX",
+      "FJHERNANDL01@LIVERPOOL.COM.MX",
+      "NNICOLASV@LIVERPOOL.COM.MX",
+      "NPVILLEGASC@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "468",
+    "nombre": "Liverpool Monclova",
+    "correos": [
+      "HVLUMBRERAR@LIVERPOOL.COM.MX",
+      "BGUADARRAMAM@LIVERPOOL.COM.MX",
+      "MJMUNOZR@LIVERPOOL.COM.MX",
+      "MROMEROS@LIVERPOOL.COM.MX",
+      "MCANOG03@LIVERPOOL.COM.MX",
+      "MCTOVAR@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "469",
+    "nombre": "Liverpool Atlixco",
+    "correos": [
+      "BAGUILAR@LIVERPOOL.COM.MX",
+      "PCORONAC@LIVERPOOL.COM.MX",
+      "DCUATLEC@LIVERPOOL.COM.MX",
+      "AJLAGUNESA@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "471",
+    "nombre": "Liverpool Fresnillo",
+    "correos": [
+      "JLRIOSF@LIVERPOOL.COM.MX",
+      "GMGONZALEZZ@LIVERPOOL.COM.MX",
+      "YTREJOJ@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "472",
+    "nombre": "Liverpool Comitan",
+    "correos": [
+      "LDGOMEZ@LIVERPOOL.COM.MX",
+      "MAFIGUEROAR@LIVERPOOL.COM.MX",
+      "KSRUIZV@LIVERPOOL.COM.MX",
+      "SJVILLEGASV@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "688",
+    "nombre": "Liverpool Tijuana",
+    "correos": [
+      "AAHERRERAB@LIVERPOOL.COM.MX",
+      "JMROMEROG02@LIVERPOOL.COM.MX",
+      "CDIAZD@LIVERPOOL.COM.MX",
+      "JAORDUNAB@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "766",
+    "nombre": "Liverpool Tepeyac",
+    "correos": [
+      "EMENDOZAM01@LIVERPOOL.COM.MX",
+      "MLGONZALEH@LIVERPOOL.COM.MX",
+      "JFQUINTEROA@LIVERPOOL.COM.MX",
+      "CEBARROSO@LIVERPOOL.COM.MX",
+      "TAVILAQ@LIVERPOOL.COM.MX",
+      "JHERNANDEM16@LIVERPOOL.COM.MX",
+      "LAPEREZP03@LIVERPOOL.COM.MX",
+      "AIRIOSV@LIVERPOOL.COM.MX",
+      "JFGUTIERREZA@LIVERPOOL.COM.MX",
+      "NJVALLEJOR@LIVERPOOL.COM.MX",
+      "KAGUILARS01@LIVERPOOL.COM.MX",
+      "ASCALDERAR@LIVERPOOL.COM.MX",
+      "ERAMIREZF01@LIVERPOOL.COM.MX",
+      "NAPENAO@LIVERPOOL.COM.MX",
+      "JAGREGORIOS@LIVERPOOL.COM.MX",
+      "LJVILLALBAC@LIVERPOOL.COM.MX",
+      "DCRUZR10@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "967",
+    "nombre": "Liverpool La Perla",
+    "correos": [
+      "PCFLORESZ@LIVERPOOL.COM.MX",
+      "JYGARCIAR@LIVERPOOL.COM.MX",
+      "FBMENDOZAO@LIVERPOOL.COM.MX",
+      "KAREYV@LIVERPOOL.COM.MX",
+      "MRGONZALEZZ@LIVERPOOL.COM.MX",
+      "ESANCHEZR13@LIVERPOOL.COM.MX",
+      "ADDUARTEG@LIVERPOOL.COM.MX",
+      "MGBENITESM@LIVERPOOL.COM.MX",
+      "AKALAMOST@LIVERPOOL.COM.MX",
+      "AMMARTINEZR@LIVERPOOL.COM.MX",
+      "ACVARGASB@LIVERPOOL.COM.MX",
+      "JGONZALEZR15@LIVERPOOL.COM.MX",
+      "EJGRAJEDAT@LIVERPOOL.COM.MX"
+    ]
+  },
+  {
+    "id": "1109",
+    "nombre": "Liverpool Cd Juárez Rio Grande",
+    "correos": [
+      "CACOHENC@LIVERPOOL.COM.MX",
+      "VRORTEGAD@LIVERPOOL.COM.MX",
+      "FAFLORESE@LIVERPOOL.COM.MX",
+      "IDSANCHEZH@LIVERPOOL.COM.MX"
+    ]
+  }
+]
